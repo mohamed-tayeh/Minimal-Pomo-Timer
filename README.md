@@ -1,6 +1,8 @@
 # Minimal Pomo Timer
 Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is automatic and I don't need to set the timer every time. You can control it using commands on stream - shown below.
  
+This works by installing it onto your PC rather than having it hosted online on streamlabs or streamelements since that would be lighter on the PC and for example sounds when the timer finishes are less likely to get affected when you have a slow laptop/PC (used to have a laptop before PC and suffered from this).
+
 # Installation
 1. Download the zip [here](/mohamed-tayeh/Minimal-Pomo-Timer/archive/refs/heads/main.zip) to your desired location
 2. Add a browser source
