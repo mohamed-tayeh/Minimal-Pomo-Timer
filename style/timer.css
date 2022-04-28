@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+
+:root {
+  --text-color: 'white';
+  --background-opacity: 0;
+  --background-red: 0;
+  --background-green: 0;
+  --background-blue: 0;
+  --font: 'Roboto';
+  --label-font-size: 55px;
+  --time-font-size: 90px;
+  --pomo-font-size: 36px;
+  --label-time-space: 0px;
+  --time-pomo-space: 6px;
+}
+
+body {
+  background-color: transparent;
+}
+
+#container {
+  height: 400px;
+  width: 400px;
+  background-color: transparent;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 8px;
+
+  display: grid;
+  place-items: center;
+}
+
+#cd-container {
+  background: rgba(
+    var(--background-red),
+    var(--background-green),
+    var(--background-blue),
+    var(--background-opacity)
+  );
+  color: var(--text-color);
+  z-index: 1;
+
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#label {
+  font-size: var(--label-font-size);
+  text-align: center;
+  margin-bottom: var(--label-time-space);
+}
+
+#cd-timer {
+  margin: 0 auto;
+  font-size: var(--time-font-size);
+  z-index: 3;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: var(--time-pomo-space);
+}
+
+#cycle-counter {
+  font-size: var(--pomo-font-size);
+}
+
+/* Text format */
+#label,
+#cd-timer,
+#cycle-counter {
+  text-align: center;
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400;
+}
+
+.cleared {
+  animation: alert-success 0.5s 1;
+  -webkit-animation: alert-success 0.5s 1;
+  animation-fill-mode: forwards;
+
+  animation-delay: 2s;
+  -webkit-animation-delay: 1s; /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes alert-success {
+  0% {
+    opacity: var(--background-opacity);
+  }
+  50% {
+    opacity: var(--background-opacity) / 2;
+  }
+  90% {
+    opacity: var(--background-opacity) * 0.2;
+    -webkit-transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-30px);
+  }
+}
