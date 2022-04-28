@@ -32,8 +32,8 @@ let configs = (function () {
 
   // Responses - not required
   const workMsg =
-    "/announcement It's work time POLICE POLICE Knifeduck peepoRun"; // these are 7tv emotes
-  const breakMsg = '/announcement 🥁 🥁 Time for a break! 🥁 🥁'; // works with emojis
+    "It's work time POLICE POLICE Knifeduck peepoRun"; // these are 7tv emotes
+  const breakMsg = '🥁 🥁 Time for a break! 🥁 🥁'; // works with emojis
   const notMod = 'hhhhh not mod';
 
   // Don't touch this
