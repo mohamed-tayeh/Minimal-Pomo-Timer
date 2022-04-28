@@ -26,7 +26,7 @@ Channel: channel for which to connect the bot to
 username: username of the bot you which to have connected to this overlay, e.g. I have a separate bot called `moh_manager` for my channel that is connected to all the overlays.
 
 For oauth do the following steps:
-1. Log In to https://twitchtokengenerator.com/
+1. Log In to https://twitchapps.com/tmi/
 2. Copy the token called `ACCESS TOKEN`
 3. Paste into configs 
 
