@@ -4,7 +4,9 @@ Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is 
 This works by installing it onto your PC rather than having it hosted online on streamlabs or streamelements since that would be lighter on the PC and for example sounds when the timer finishes are less likely to get affected when you have a slow laptop/PC (used to have a laptop before PC and suffered from this).
 
 # Installation
-1. Download the zip [here](/mohamed-tayeh/Minimal-Pomo-Timer/archive/refs/heads/main.zip) to your desired location
+1. Download the zip to your desired location
+![image](https://user-images.githubusercontent.com/35163331/165662709-b55ff46a-9df3-443f-b1f4-b741dd322430.png)
+
 2. Add a browser source
 3. Choose `timer.html`
 
