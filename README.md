@@ -3,14 +3,23 @@
  
 # Installation
 1. Download the zip [here]() to your desired location
-2. Add a local browser source (regular browser source but it's on your machine)
+2. Add a browser source
 3. Choose `timer.html`
+
+![image](https://user-images.githubusercontent.com/35163331/165658964-4ee3c16b-e151-4749-a2ec-2a0110f899e7.png)
 
 # Configuration
 Within the folder, find the file called `configs.js`.
 
 The file should look like this with comments on how to change the default configurations:
 ![image](https://user-images.githubusercontent.com/35163331/165657486-a4660bdf-41e9-4baa-99a4-9aba595e6df6.png)
+
+For channel, enter your channel and for oauth do the following steps:
+1. Log In to https://twitchtokengenerator.com/
+2. Copy the token called `ACCESS TOKEN`
+3. Paste into configs 
+
+oauth is a token that acts like a password that only allows the overlay to send messages on behalf of that account.
 
 # How to use
 - !timer start: begins the timer with the defauly configuration
