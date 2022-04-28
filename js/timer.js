@@ -149,11 +149,11 @@
 
     if (command === '!timer') {
       if (!(isMod || isBroadCaster)) {
-        client.say(target, responses.notMod);
+        if (responses.notMod) client.say(target, responses.notMod);
         return;
       }
 
-      if (option === 'reset') {
+      if (option === 'reset' || option === 'clear') {
         clearTimer();
       } else if (option === 'skip') {
         currTime = 1;
@@ -189,8 +189,6 @@
         }
 
         updateCycleCounter(false);
-      } else if (option === 'clear') {
-        clearTimer();
       } else {
         if (msg === undefined) return;
         time = msg.split(' ')[1];
@@ -264,7 +262,7 @@
       }
 
       changeLabel(settings.breakLabel);
-      client.say(targetGlobal, responses.breakMsg);
+      if (responses.breakMsg) client.say(targetGlobal, responses.breakMsg);
 
       playBreakSound();
     }
@@ -275,7 +273,7 @@
       currTime = settings.workTime;
 
       changeLabel(settings.workLabel);
-      client.say(targetGlobal, responses.workMsg);
+      if (responses.workMsg) client.say(targetGlobal, responses.workMsg);
       playWorkSound();
     }
   }
@@ -324,7 +322,7 @@
     cdContainerEl.classList.remove('cleared');
 
     changeLabel(settings.workLabel);
-    client.say(targetGlobal, responses.workMsg);
+    if (responses.workMsg) client.say(targetGlobal, responses.workMsg);
     updateCycleCounter(true);
     playWorkSound();
     timer();
