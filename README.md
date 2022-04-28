@@ -1,15 +1,15 @@
 # Minimal Pomo Timer
- Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is automatic and I don't need to set the timer every time. You can control it using commands on stream - shown below.
+Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is automatic and I don't need to set the timer every time. You can control it using commands on stream - shown below.
  
 # Installation
-1. Download the zip [here]() to your desired location
+1. Download the zip [here](https://github.com/mohamed-tayeh/Minimal-Pomo-Timer/zipball/master/) to your desired location
 2. Add a browser source
 3. Choose `timer.html`
 
 ![image](https://user-images.githubusercontent.com/35163331/165658964-4ee3c16b-e151-4749-a2ec-2a0110f899e7.png)
 
 # Configuration
-Within the folder, find the file called `configs.js`.
+Within the folder, find and open the file called `configs.js`.
 
 The file should look like this with comments on how to change the default configurations:
 ![image](https://user-images.githubusercontent.com/35163331/165657486-a4660bdf-41e9-4baa-99a4-9aba595e6df6.png)
