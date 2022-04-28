@@ -12,6 +12,10 @@ This works by installing it onto your PC rather than having it hosted online on 
 
 ![image](https://user-images.githubusercontent.com/35163331/165658964-4ee3c16b-e151-4749-a2ec-2a0110f899e7.png)
 
+4. The sound of the timer needs to limited in OBS using a limiter so that you can control the exact volume you would like it sound on Stream
+![image](https://user-images.githubusercontent.com/35163331/165692767-5e523627-43e0-4ae5-88b6-7fd76c894a23.png)
+![image](https://user-images.githubusercontent.com/35163331/165692832-f7d1ac58-e0a3-4f7b-8356-2c07493ed806.png)
+
 # Configuration
 Within the folder, find and open the file called `configs.js`.
 
