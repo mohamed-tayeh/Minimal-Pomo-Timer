@@ -2,8 +2,8 @@
  Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is automatic and I don't need to set the timer every time.
  
 # Installation
-1. Download the zip [here]() to your desired location.
-2. Add a local browser source:
+1. Download the zip [here]() to your desired location
+2. Add a local browser source (regular browser source but it's on your machine)
 3. Choose `timer.html`
 
 # Configuration
