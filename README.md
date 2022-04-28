@@ -2,7 +2,7 @@
 Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is automatic and I don't need to set the timer every time. You can control it using commands on stream - shown below.
  
 # Installation
-1. Download the zip [here](https://github.com/mohamed-tayeh/Minimal-Pomo-Timer/zipball/master/) to your desired location
+1. Download the zip [here](/mohamed-tayeh/Minimal-Pomo-Timer/archive/refs/heads/main.zip) to your desired location
 2. Add a browser source
 3. Choose `timer.html`
 
