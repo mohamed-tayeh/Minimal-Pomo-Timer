@@ -17,7 +17,7 @@ This works by installing it onto your PC rather than having it hosted online on 
 ![image](https://user-images.githubusercontent.com/35163331/165692832-f7d1ac58-e0a3-4f7b-8356-2c07493ed806.png)
 
 # Configuration
-Within the folder, find and open the file called `configs.js`.
+Within the folder, find and open the file called `configs.js` using `notepad`
 
 The file should look like this with comments on how to change the default configurations:
 ![image](https://user-images.githubusercontent.com/35163331/165657486-a4660bdf-41e9-4baa-99a4-9aba595e6df6.png)
