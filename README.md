@@ -47,3 +47,5 @@ oauth is a token that acts like a password that only allows the overlay to send 
 # Credits
 
 I built this code using sacket's timer countown as initial boiler plate - found [here](https://www.youtube.com/watch?v=36q6zHG9vwQ&t=226s)
+
+Please star the repository on the top right or provide a link back to this page:)
