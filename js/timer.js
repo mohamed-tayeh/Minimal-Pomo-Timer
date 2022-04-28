@@ -27,7 +27,7 @@
   let currTime = 0;
   let cdCounter = 0;
   let cdCounterGoal = 0;
-  let cdCounterGoalDefault = 20;
+  let cdCounterGoalDefault = settings.defaultPomoNumber * 2;
 
   let targetGlobal;
 
