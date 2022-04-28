@@ -27,7 +27,7 @@ username: username of the bot you which to have connected to this overlay, e.g. 
 
 For oauth do the following steps:
 1. Log In to https://twitchapps.com/tmi/
-2. Copy the token called `ACCESS TOKEN`
+2. Copy the token
 3. Paste into configs 
 
 oauth is a token that acts like a password that only allows the overlay to send messages on behalf of that account.
