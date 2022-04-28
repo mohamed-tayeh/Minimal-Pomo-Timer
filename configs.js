@@ -8,9 +8,9 @@ let configs = (function () {
   const channelBots = ['streamelements', 'nightbot', 'streamlabs'];
 
   // Styling - required
-  const textColor = 'white'; //  hex or name
+  const textColor = 'black'; //  hex or name
   const backgroundColor = '#000000'; // hex only
-  const backgroundOpacity = 0.5; // 0 to 1 - background initially hidden
+  const backgroundOpacity = 0; // 0 to 1 - background initially hidden (0)
   const fontFamily = 'Roboto';
   const labelFontSize = '55px';
   const timeFontSize = '90px';
@@ -32,8 +32,8 @@ let configs = (function () {
 
   // Responses - not required
   const workMsg =
-    "/announcement It's work time POLICE POLICE Knifeduck peepoRun";
-  const breakMsg = '/announcement 🥁 🥁 Time for a break! 🥁 🥁';
+    "/announcement It's work time POLICE POLICE Knifeduck peepoRun"; // these are 7tv emotes
+  const breakMsg = '/announcement 🥁 🥁 Time for a break! 🥁 🥁'; // works with emojis
   const notMod = 'hhhhh not mod';
 
   // Don't touch this
