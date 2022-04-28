@@ -14,7 +14,10 @@ Within the folder, find and open the file called `configs.js`.
 The file should look like this with comments on how to change the default configurations:
 ![image](https://user-images.githubusercontent.com/35163331/165657486-a4660bdf-41e9-4baa-99a4-9aba595e6df6.png)
 
-For channel, enter your channel and for oauth do the following steps:
+Channel: channel for which to connect the bot to
+username: username of the bot you which to have connected to this overlay, e.g. I have a separate bot called `moh_manager` for my channel that is connected to all the overlays.
+
+For oauth do the following steps:
 1. Log In to https://twitchtokengenerator.com/
 2. Copy the token called `ACCESS TOKEN`
 3. Paste into configs 
