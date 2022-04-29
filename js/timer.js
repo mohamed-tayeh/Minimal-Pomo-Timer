@@ -191,7 +191,7 @@
         updateCycleCounter(false);
       } else {
         if (msg === undefined) return;
-        time = msg.split(' ')[1];
+        let time = msg.split(' ')[1];
 
         const parsedTime = parseTime(time);
 
