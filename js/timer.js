@@ -15,6 +15,8 @@
   const cdTimerId = 'cd-timer';
   const cycleCounterId = 'cycle-counter';
 
+  const clearedClass = 'cleared';
+
   let cdContainerEl;
   let labelEl;
   let cdTimerEl;
@@ -322,7 +324,7 @@
     isRunning = true;
     isCleared = false;
 
-    cdContainerEl.classList.remove('cleared');
+    cdContainerEl.classList.remove(clearedClass);
 
     changeLabel(settings.workLabel);
     if (responses.workMsg) client.action(targetGlobal, responses.workMsg);
@@ -349,7 +351,7 @@
 
     changeLabel(settings.clearLabel);
 
-    cdContainerEl.classList.add('cleared');
+    cdContainerEl.classList.add(clearedClass);
   }
 
   /**

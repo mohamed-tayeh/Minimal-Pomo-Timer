@@ -87,7 +87,7 @@ body {
   -webkit-animation: alert-success 0.5s 1;
   animation-fill-mode: forwards;
 
-  animation-delay: 2s;
+  animation-delay: 1s;
   -webkit-animation-delay: 1s; /* Safari and Chrome */
   -webkit-animation-fill-mode: forwards;
 }
@@ -96,15 +96,7 @@ body {
   0% {
     opacity: var(--background-opacity);
   }
-  50% {
-    opacity: var(--background-opacity) / 2;
-  }
-  90% {
-    opacity: var(--background-opacity) * 0.2;
-    -webkit-transform: translateY(0px);
-  }
   100% {
     opacity: 0;
-    -webkit-transform: translateY(-30px);
   }
 }
