@@ -178,14 +178,15 @@
         cdCounterGoal = 2 * timeOrColorOrGoal;
         updateCycleCounter(false);
       } else if (option === 'cycle') {
-        if (cdCounter > cdCounterGoal) return;
+        let newCdCounter = 2 * timeOrColorOrGoal;
+        if (newCdCounter > cdCounterGoal) return;
 
         if (cdCounter % 2 === 0) {
           // Currently Break time
-          cdCounter = 2 * timeOrColorOrGoal;
+          cdCounter = newCdCounter;
         } else {
           // Currently Work time
-          cdCounter = 2 * timeOrColorOrGoal - 1;
+          cdCounter = newCdCounter - 1;
         }
 
         updateCycleCounter(false);
