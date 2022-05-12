@@ -262,18 +262,20 @@
       }
 
       changeLabel(settings.breakLabel);
-      if (responses.breakMsg) client.say(targetGlobal, responses.breakMsg);
+      if (responses.breakMsg) client.action(targetGlobal, responses.breakMsg);
+      if (settings.slowMode) slowMode(false);
 
       playBreakSound();
     }
 
     if (cdCounter % 2 === 1) {
       // Work time
-
       currTime = settings.workTime;
 
       changeLabel(settings.workLabel);
-      if (responses.workMsg) client.say(targetGlobal, responses.workMsg);
+      if (responses.workMsg) client.action(targetGlobal, responses.workMsg);
+      if (settings.slowMode) slowMode(true);
+
       playWorkSound();
     }
   }
@@ -322,7 +324,9 @@
     cdContainerEl.classList.remove('cleared');
 
     changeLabel(settings.workLabel);
-    if (responses.workMsg) client.say(targetGlobal, responses.workMsg);
+    if (responses.workMsg) client.action(targetGlobal, responses.workMsg);
+    if (settings.slowMode) slowMode(true);
+
     updateCycleCounter(true);
     playWorkSound();
     timer();
@@ -342,7 +346,7 @@
     cdCounter = cdCounterGoal;
     updateCycleCounter(false);
 
-    changeLabel(clearLabel);
+    changeLabel(settings.clearLabel);
 
     cdContainerEl.classList.add('cleared');
   }
@@ -394,6 +398,19 @@
     }
 
     cdTimerEl.textContent = minutes + ':' + seconds;
+  }
+
+  /**
+   * Setting up slow mode
+   * @param {boolean} workTime - if currently work time
+   * @author Mohamed Tayeh
+   */
+  function slowMode(workTime) {
+    if (workTime) {
+      client.slow(targetGlobal, settings.slowModeTime);
+    } else {
+      client.slowoff(targetGlobal);
+    }
   }
 
   /**
