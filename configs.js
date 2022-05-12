@@ -10,7 +10,7 @@ let configs = (function () {
   // Styling - required
   const textColor = 'white'; //  hex or name
   const backgroundColor = '#000000'; // hex only
-  const backgroundOpacity = 0.5; // 0 to 1 - background initially hidden (0)
+  const backgroundOpacity = 0.5; // 0 to 1 (0 is transparent)
   const fontFamily = 'Roboto';
   const labelFontSize = '55px';
   const timeFontSize = '90px';
