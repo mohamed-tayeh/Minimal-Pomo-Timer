@@ -4,13 +4,13 @@ let configs = (function () {
   // Authentication and channels - required
   const channel = '';
   const username = '';
-  const oauth = '';
+  const oauth = ''; // Should be oauth:<token>
   const channelBots = ['streamelements', 'nightbot', 'streamlabs'];
 
   // Styling - required
-  const textColor = 'black'; //  hex or name
+  const textColor = 'white'; //  hex or name
   const backgroundColor = '#000000'; // hex only
-  const backgroundOpacity = 0; // 0 to 1 - background initially hidden (0)
+  const backgroundOpacity = 0.5; // 0 to 1 - background initially hidden (0)
   const fontFamily = 'Roboto';
   const labelFontSize = '55px';
   const timeFontSize = '90px';
@@ -23,7 +23,7 @@ let configs = (function () {
   const breakTime = 600; // in seconds
   const longBreakTime = 900; // in seconds
   const longBreakEvery = 3; // long break every x pomos
-  const defaultPomoNumber = 10;
+  const defaultPomoNumber = 6;
 
   // Label Configuration - required
   const workLabel = 'Work';
@@ -31,10 +31,13 @@ let configs = (function () {
   const clearLabel = '( ͡ᵔ ͜ʖ ͡ᵔ)';
 
   // Responses - not required
-  const workMsg =
-    "It's work time POLICE POLICE Knifeduck peepoRun"; // these are 7tv emotes
+  const workMsg = "It's work time POLICE POLICE Knifeduck peepoRun"; // these are 7tv emotes
   const breakMsg = '🥁 🥁 Time for a break! 🥁 🥁'; // works with emojis
   const notMod = 'hhhhh not mod';
+
+  // Slow mode - not required
+  const slowMode = true; // true or false
+  const slowModeTime = 3; // in seconds
 
   // Don't touch this
   const user = {
@@ -70,6 +73,8 @@ let configs = (function () {
     workLabel,
     breakLabel,
     clearLabel,
+    slowMode,
+    slowModeTime,
   };
 
   let module = {};
