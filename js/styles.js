@@ -78,6 +78,8 @@
     );
   }
 
+  document.documentElement.style.setProperty('--direction', styles.direction);
+
   /**
    * Dynamically loads a google font
    * @param {string} font
