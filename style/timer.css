@@ -1,26 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
-
 :root {
+  --height: 400px;
+  --width: 400px;
+  --direction: 'row';
   --text-color: 'white';
   --background-opacity: 0;
   --background-red: 0;
   --background-green: 0;
   --background-blue: 0;
-  --font-family: 'Roboto';
-  --label-font-size: 55px;
-  --time-font-size: 90px;
-  --pomo-font-size: 36px;
-  --label-time-space: 0px;
-  --time-pomo-space: 6px;
+  --background-roundness: 0px;
+  --font-family: 'Poppins';
+  --label-font-size: 24px;
+  --time-font-size: 64px;
+  --pomo-font-size: 24px;
+  --label-space-above: 0px;
+  --time-space-above: 6px;
+  --time-space-left: 0px;
+  --cycle-space-above: 0px;
 }
 
 body {
   background-color: transparent;
+  font-family: var(--font-family), sans-serif;
+  font-weight: 400 !important;
 }
 
 #container {
-  height: 400px;
-  width: 400px;
+  height: var(--height);
+  width: var(--width);
   background-color: transparent;
 
   position: absolute;
@@ -43,34 +49,43 @@ body {
   color: var(--text-color);
   z-index: 1;
 
-  height: 80%;
-  width: 80%;
-  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+
+  border-radius: var(--background-roundness);
 
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--direction);
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 #label {
   font-size: var(--label-font-size);
   text-align: center;
-  margin-bottom: var(--label-time-space);
+  margin-top: var(--label-space-above);
+  margin-right: auto;
 }
 
 #cd-timer {
-  margin: 0 auto;
-  font-size: var(--time-font-size);
+  position: absolute;
+
   z-index: 3;
   text-transform: uppercase;
-  font-weight: 300;
-  margin-bottom: var(--time-pomo-space);
+
+  font-size: var(--time-font-size);
+  margin-top: var(--time-space-above);
+  margin-left: var(--time-space-left);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #cycle-counter {
   font-size: var(--pomo-font-size);
+  margin-top: var(--cycle-space-above);
+  margin-left: auto;
 }
 
 /* Text format */
@@ -78,25 +93,4 @@ body {
 #cd-timer,
 #cycle-counter {
   text-align: center;
-  font-family: var(--font-family), sans-serif;
-  font-weight: 400;
-}
-
-.cleared {
-  animation: alert-success 0.5s 1;
-  -webkit-animation: alert-success 0.5s 1;
-  animation-fill-mode: forwards;
-
-  animation-delay: 1s;
-  -webkit-animation-delay: 1s; /* Safari and Chrome */
-  -webkit-animation-fill-mode: forwards;
-}
-
-@keyframes alert-success {
-  0% {
-    opacity: var(--background-opacity);
-  }
-  100% {
-    opacity: 0;
-  }
 }

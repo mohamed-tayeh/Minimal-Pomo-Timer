@@ -4,6 +4,8 @@
   const styles = configs.styles;
 
   function customStyles() {
+    loadGoogleFont(styles.fontFamily);
+
     document.documentElement.style.setProperty('--height', styles.height);
 
     document.documentElement.style.setProperty('--width', styles.width);
@@ -74,6 +76,18 @@
       '--cycle-space-above',
       styles.cycleSpaceAbove
     );
+  }
+
+  /**
+   * Dynamically loads a google font
+   * @param {string} font
+   */
+  function loadGoogleFont(font) {
+    WebFont.load({
+      google: {
+        families: [font],
+      },
+    });
   }
 
   window.addEventListener('load', customStyles);
