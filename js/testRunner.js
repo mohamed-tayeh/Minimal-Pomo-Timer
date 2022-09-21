@@ -71,6 +71,24 @@ let testRunner = (function () {
   }
 
   /**
+   * Change goal to 1 when cycle = 1
+   */
+  function changingGoalTo1() {
+    chatHandler.chatCommand('!timer start');
+    chatHandler.chatCommand('!timer goal 1');
+    chatHandler.chatCommand('!timer skip');
+  }
+
+  /**
+   * Start timer after finishing
+   */
+  function finishThenStart() {
+    setTimeout(chatHandler.chatCommand('!timer start'), 1000);
+    seTimeout(chatHandler.chatCommand('!timer finish'), 2000);
+    seTimeout(chatHandler.chatCommand('!start'), 4000);
+  }
+
+  /**
    * Choose which test you would like to run
    */
   function runTests() {
@@ -81,6 +99,7 @@ let testRunner = (function () {
     // timerFunctionalityWithRepeatedTimerStart();
     // startingThenFinish();
     // timerFunctionalityThenFinish();
+    // changingGoalTo1();
   }
 
   module.runTests = runTests;
