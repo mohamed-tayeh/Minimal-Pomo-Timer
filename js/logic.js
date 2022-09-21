@@ -110,7 +110,7 @@ const logic = (function () {
     currTime--;
 
     if (currTime >= 0) {
-      if (isWorkTime() && currTime == settings.workRemindTime) {
+      if (isWorkTime() && currTime === settings.workRemindTime) {
         chatHandler.chatItalicMessage(responses.workRemindMsg);
       }
 
@@ -151,7 +151,7 @@ const logic = (function () {
         currTime = settings.breakTime;
       }
 
-      if (settings.noLastBreak && cdCounter == cdCounterGoal) finishTimer();
+      if (settings.noLastBreak && cdCounter === cdCounterGoal) finishTimer();
 
       controller.updateLabel(settings.breakLabel);
       controller.playBreakSound();
@@ -169,13 +169,8 @@ const logic = (function () {
     let newCdCounter = 2 * newCycleNum;
     if (newCdCounter > cdCounterGoal) return false;
 
-    if (isWorkTime()) {
-      // Currently Work time
-      cdCounter = newCdCounter - 1;
-    } else {
-      // Currently Break time
-      cdCounter = newCdCounter;
-    }
+    cdCounter = newCdCounter;
+    if (isWorkTime()) cdCounter = newCdCounter - 1;
 
     updateCycleCounter();
     return true;

@@ -100,6 +100,7 @@ let testRunner = (function () {
     // startingThenFinish();
     // timerFunctionalityThenFinish();
     // changingGoalTo1();
+    // finishThenStart();
   }
 
   module.runTests = runTests;
