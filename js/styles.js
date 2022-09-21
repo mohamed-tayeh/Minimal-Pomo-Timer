@@ -63,6 +63,11 @@
     );
 
     document.documentElement.style.setProperty(
+      '--label-space-left',
+      styles.labelSpaceLeft
+    );
+
+    document.documentElement.style.setProperty(
       '--time-space-above',
       styles.timeSpaceAbove
     );
@@ -76,9 +81,13 @@
       '--cycle-space-above',
       styles.cycleSpaceAbove
     );
-  }
 
-  document.documentElement.style.setProperty('--direction', styles.direction);
+    document.documentElement.style.setProperty(
+      '--cycle-space-right',
+      styles.cycleSpaceRight
+    );
+    document.documentElement.style.setProperty('--direction', styles.direction);
+  }
 
   /**
    * Dynamically loads a google font
