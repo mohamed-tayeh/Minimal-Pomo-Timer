@@ -21,7 +21,7 @@ let configs = (function () {
   // Remember to change the height and width when changing these!
   const labelSpaceAbove = '115px';
   const labelSpaceLeft = '0px'; // negative is left; positive is right
-  const timeSpaceAbove = '-30px'; // negative is up; positive is down
+  const timeSpaceAbove = '-10px'; // negative is up; positive is down
   const timeSpaceLeft = '-15px'; // negative is left; positive is right
   const cycleSpaceAbove = '115px'; // negative is up; positive is down
   const cycleSpaceRight = '0px'; // Diff: negative is right; positive is left
