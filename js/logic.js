@@ -40,6 +40,7 @@ const logic = (function () {
 
     isRunning = true;
     isStarting = true;
+    cdCounter = 0;
 
     // The look of the timer during starting
     controller.updateLabel(settings.startingLabel);
@@ -115,7 +116,10 @@ const logic = (function () {
 
       setTimeout(timer, 1000); // Recursive call
     } else {
-      if (cdCounter < cdCounterGoal) {
+      if (cdCounter < cdCounterGoal && !settings.noLastBreak) {
+        updateTimerWithNextCycle();
+        timer(); // Next recursive call
+      } else if (cdCounter < cdCounterGoal - 1 && settings.noLastBreak) {
         updateTimerWithNextCycle();
         timer(); // Next recursive call
       } else {
