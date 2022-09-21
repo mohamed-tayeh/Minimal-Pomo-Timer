@@ -13,9 +13,11 @@
   --time-font-size: 64px;
   --pomo-font-size: 24px;
   --label-space-above: 0px;
+  --label-space-left: 0px;
   --time-space-above: 6px;
   --time-space-left: 0px;
   --cycle-space-above: 0px;
+  --cycle-space-right: 0px;
 }
 
 body {
@@ -61,9 +63,11 @@ body {
 }
 
 #label {
-  font-size: var(--label-font-size);
   text-align: center;
+  font-size: var(--label-font-size);
+
   margin-top: var(--label-space-above);
+  margin-left: var(--label-space-left);
   margin-right: auto;
 }
 
@@ -86,6 +90,7 @@ body {
   font-size: var(--pomo-font-size);
   margin-top: var(--cycle-space-above);
   margin-left: auto;
+  margin-right: var(--cycle-space-right);
 }
 
 /* Text format */
