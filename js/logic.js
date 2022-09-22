@@ -110,7 +110,11 @@ const logic = (function () {
     currTime--;
 
     if (currTime >= 0) {
-      if (isWorkTime() && currTime === settings.workRemindTime) {
+      if (
+        !isWorkTime() &&
+        currTime === settings.workTimeRemind &&
+        settings.sendWorkTimeRemind
+      ) {
         chatHandler.chatItalicMessage(responses.workRemindMsg);
       }
 
