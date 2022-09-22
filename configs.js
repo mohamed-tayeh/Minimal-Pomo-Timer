@@ -35,7 +35,8 @@ let configs = (function () {
   const longBreakTime = 900; // in seconds
   const longBreakEvery = 3; // long break every x pomos
   const defaultPomoNumber = 8;
-  const workRemindTime = 20;
+  const sendWorkTimeRemind = true;
+  const workTimeRemind = 20;
   const startingTime = 600;
   const noLastBreak = true;
 
@@ -107,7 +108,8 @@ let configs = (function () {
     finishLabel,
     slowMode,
     slowModeTime,
-    workRemindTime,
+    sendWorkTimeRemind,
+    workTimeRemind,
     workSound,
     breakSound,
     noLastBreak,
