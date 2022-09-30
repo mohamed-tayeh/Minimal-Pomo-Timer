@@ -7,6 +7,8 @@ const controller = (function () {
 
   let workSound = new Audio(`./media/${settings.workSound}`);
   let breakSound = new Audio(`./media/${settings.breakSound}`);
+  workSound.volume = 0.8;
+  breakSound.volume = 0.8;
 
   const labelId = 'label';
   const cdTimerId = 'cd-timer';

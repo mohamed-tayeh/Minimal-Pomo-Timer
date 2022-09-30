@@ -40,16 +40,16 @@ const chatHandler = (function () {
 
     targetGlobal = target;
 
-    const { isMod, isBroadCaster, chatterName } = extractMsgInfo(context);
-
-    if (!isTesting && !(isMod || isBroadCaster || !self)) {
-      chatItalicMessage(responses.notMod, chatterName);
-      return;
-    }
-
     const { command, firstParam, secondParam } = extractMsgParams(msg);
 
     if (command !== '!timer' && command !== '!start') return;
+
+    const { isMod, isBroadCaster, chatterName } = extractMsgInfo(context);
+
+    if (!(isMod || isBroadCaster)) {
+      chatItalicMessage(responses.notMod, chatterName);
+      return;
+    }
 
     if (command === '!start') {
       let startingSuccess = logic.starting();
