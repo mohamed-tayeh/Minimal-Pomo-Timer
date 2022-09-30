@@ -113,7 +113,8 @@ const logic = (function () {
       if (
         !isWorkTime() &&
         currTime === settings.workTimeRemind &&
-        settings.sendWorkTimeRemind
+        settings.sendWorkTimeRemind &&
+        !isLastBreak()
       ) {
         chatHandler.chatItalicMessage(responses.workRemindMsg);
       }
@@ -296,6 +297,14 @@ const logic = (function () {
    */
   function isLongBreak() {
     return !(cdCounter % (settings.longBreakEvery * 2));
+  }
+
+  /**
+   * Returns if it is a long break
+   * @return {boolean}
+   */
+  function isLastBreak() {
+    return cdCounter == cdCounterGoal;
   }
 
   /**
