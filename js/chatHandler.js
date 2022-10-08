@@ -35,8 +35,7 @@ const chatHandler = (function () {
    * @note This function was taken from twitch documentation: https://dev.twitch.tv/docs/irc
    */
   function onMessageHandler(target, context, msg, self) {
-    if (self && !isTesting) return;
-    if (!msg) return;
+    if (!msg || self) return;
 
     targetGlobal = target;
 
