@@ -19,6 +19,17 @@ const controller = (function () {
   let cycleCounterEl;
 
   /**
+   * Gets the elements on window load
+   */
+  function getElementsOnLoad() {
+    labelEl = document.getElementById(labelId);
+    cdTimerEl = document.getElementById(cdTimerId);
+    cycleCounterEl = document.getElementById(cycleCounterId);
+  }
+
+  window.addEventListener('load', getElementsOnLoad);
+
+  /**
    * Updates the label on the timer
    * @param {string} newLabel - work or break
    */
@@ -55,17 +66,6 @@ const controller = (function () {
   function playBreakSound() {
     breakSound.play();
   }
-
-  /**
-   * Gets the elements on window load
-   */
-  function getElementsOnLoad() {
-    labelEl = document.getElementById(labelId);
-    cdTimerEl = document.getElementById(cdTimerId);
-    cycleCounterEl = document.getElementById(cycleCounterId);
-  }
-
-  window.addEventListener('load', getElementsOnLoad);
 
   module.updateLabel = updateLabel;
   module.updateTime = updateTime;
