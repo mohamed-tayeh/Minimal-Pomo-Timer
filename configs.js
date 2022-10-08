@@ -35,8 +35,8 @@ let configs = (function () {
   const longBreakTime = 900; // in seconds
   const longBreakEvery = 3; // long break every x pomos
   const defaultPomoNumber = 8;
-  const sendWorkTimeRemind = true;
   const workTimeRemind = 20;
+  const sendWorkTimeRemind = true;
   const startingTime = 600;
   const noLastBreak = true;
 
@@ -53,7 +53,7 @@ let configs = (function () {
   // Responses - not required
   const workMsg = "It's work time 📏 📘"; // these are 7tv emotes
   const breakMsg = 'Time for a break! 🎶 🎮'; // works with emojis
-  const workRemindMsg = 'Time to get ready for focus @Moh__t 💻';
+  const workRemindMsg = 'Time to get ready for focus @MohFocus 💻';
   const notMod = 'hhhhh not mod';
   const notRunning = 'The timer is not running to perform this command!';
   const streamStarting = 'Stream is starting!';

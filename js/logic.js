@@ -174,8 +174,8 @@ const logic = (function () {
     let newCdCounter = 2 * newCycleNum;
     if (newCdCounter > cdCounterGoal) return false;
 
-    cdCounter = newCdCounter;
     if (isWorkTime()) cdCounter = newCdCounter - 1;
+    else cdCounter = newCdCounter;
 
     updateCycleCounter();
     return true;
@@ -283,8 +283,8 @@ const logic = (function () {
   }
 
   /**
-   * Returns if the current timer is at a work or break time
-   * @summary cdCounter is even when it is work time; odd during break time
+   * Returns true if it is currently work time (1)
+   * @summary cdCounter is odd when it is work time; even during break time
    * @return {boolean}
    */
   function isWorkTime() {
