@@ -25,7 +25,7 @@ const logic = (function () {
 
     // Initial look of the timer
     controller.updateLabel(settings.workLabel);
-    controller.updateTime(formatCurrTime(currTime));
+    controller.updateTime(formatCurrTime());
     updateCycleCounter();
   }
 
@@ -60,7 +60,7 @@ const logic = (function () {
       return;
     }
 
-    controller.updateTime(formatCurrTime(currTime));
+    controller.updateTime(formatCurrTime());
     currTime--;
 
     if (currTime >= 0) {
@@ -100,7 +100,7 @@ const logic = (function () {
    * Starts the timer with the currTime and u
    */
   function timer() {
-    controller.updateTime(formatCurrTime(currTime));
+    controller.updateTime(formatCurrTime());
 
     if (isPaused && isRunning) {
       setTimeout(timer, 1000);
@@ -202,7 +202,7 @@ const logic = (function () {
 
     controller.updateLabel(settings.finishLabel);
     currTime = 0;
-    controller.updateTime(formatCurrTime(currTime));
+    controller.updateTime(formatCurrTime());
 
     isRunning = false;
     isStarting = false;
@@ -312,14 +312,20 @@ const logic = (function () {
    * @return {string}
    */
   function formatCurrTime() {
-    let m = Math.floor(currTime / 60);
+    let h = Math.floor(currTime / 3600);
+    let m = settings.showHours
+      ? Math.floor((currTime % 3600) / 60)
+      : Math.floor(currTime / 60);
     let s = Math.floor((currTime % 3600) % 60);
 
+    let hours = h < 10 ? '0' + h : h;
     let minutes = m < 10 ? '0' + m : m;
     let seconds = s < 10 ? '0' + s : s;
 
-    if (currTime === null || currTime === undefined || isNaN(currTime))
-      console.log('fuck: ', currTime);
+    if (settings.showHours && settings.showHoursIf00)
+      return hours + ':' + minutes + ':' + seconds;
+    if (settings.showHours)
+      return (h ? hours + ':' : '') + minutes + ':' + seconds;
 
     return minutes + ':' + seconds;
   }
