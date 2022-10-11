@@ -1,7 +1,7 @@
 let configs = (function () {
   'use strict';
 
-  // Authentication and channels - required
+  // Authentication and channels
   const channel = ''; // your channel
   const username = ''; // bot account
   const oauth = ''; // should be oauth:xxxxxxxxxxxx from the bot account
@@ -29,7 +29,7 @@ let configs = (function () {
   // Remember to change the above values when changing the following one
   const direction = 'row'; // row or column
 
-  // Time Configuration - required
+  // Time Configuration
   const workTime = 3600; // in seconds
   const breakTime = 600; // in seconds
   const longBreakTime = 900; // in seconds
@@ -39,21 +39,23 @@ let configs = (function () {
   const sendWorkTimeRemind = true;
   const startingTime = 600;
   const noLastBreak = true;
+  const showHours = false; // true: time in hh:mm:ss; false: time in mm:ss always
+  const showHoursIf00 = false; // true: will show 00:mm:ss, false: will show mm:ss when hours is 0
 
-  // Label Configuration - required
+  // Label Configuration
   const workLabel = 'Work';
   const breakLabel = 'Break';
   const finishLabel = 'Finished!';
   const startingLabel = 'Starting';
 
-  // Sound Configuration - required
+  // Sound Configuration
   const workSound = 'workSound.riff';
   const breakSound = 'breakSound.riff';
 
-  // Responses - not required
+  // Responses
   const workMsg = "It's work time 📏 📘"; // these are 7tv emotes
   const breakMsg = 'Time for a break! 🎶 🎮'; // works with emojis
-  const workRemindMsg = 'Time to get ready for focus @MohFocus 💻';
+  const workRemindMsg = 'Time to get ready for focus @{channel} 💻'; // can be customized to anything
   const notMod = 'hhhhh not mod';
   const notRunning = 'The timer is not running to perform this command!';
   const streamStarting = 'Stream is starting!';
@@ -66,7 +68,7 @@ let configs = (function () {
   const alreadyStarting =
     'The stream is already starting or the timer is running!';
 
-  // Slow mode - not required
+  // Slow mode
   const slowMode = false; // true or false
   const slowModeTime = 3; // in seconds
 
@@ -114,6 +116,8 @@ let configs = (function () {
     breakSound,
     noLastBreak,
     runTests,
+    showHours,
+    showHoursIf00,
   };
 
   const styles = {
