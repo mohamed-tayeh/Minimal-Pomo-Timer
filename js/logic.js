@@ -163,6 +163,7 @@ const logic = (function () {
 
       if (responses.breakMsg) chatHandler.chatItalicMessage(responses.breakMsg);
       if (settings.slowMode) chatHandler.slowMode(false);
+      if (log) log(responses.breakmsg)
     }
   }
 
@@ -329,7 +330,23 @@ const logic = (function () {
 
     return minutes + ':' + seconds;
   }
+  function log() {
+    const WebhookURL = "WEBHOOK";
 
+
+    return fetch(WebhookURL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+      "embeds": [{
+      "title": "Hello!",
+      "description": "Hi! :grinning:"
+      }]
+    }),
+    });
+  }
   module.starting = starting;
   module.startTimer = startTimer;
   module.updateCycle = updateCycle;
