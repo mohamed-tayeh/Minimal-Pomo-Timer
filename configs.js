@@ -74,8 +74,7 @@ let configs = (function () {
 
   // Discord notifications
   const sendDiscord = false; // true or false
-  const webHookURL = // make sure to keep the '' around the url
-    'https://discord.com/api/webhooks/1050914048260198400/H2pKNt2TJWbyKEwgHDEAATSQy3_75f60l2_nGSqmNTnoqKlYb40HryKAMkSFS3e91SgG';
+  const webHookURL = ''; // make sure to keep the '' around the url
   const roleID = '1050921202853617724'; // role id to ping, can be obtained by right clicking on the role
   const content = 'Stream is going on break! {role}'; // message to send
 
