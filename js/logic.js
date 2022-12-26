@@ -161,6 +161,9 @@ const logic = (function () {
       controller.updateLabel(settings.breakLabel);
       controller.playBreakSound();
 
+      if (configs.discordSettings.sendDiscord)
+        discordHandler.sendDiscordBreakNotif();
+
       if (responses.breakMsg) chatHandler.chatItalicMessage(responses.breakMsg);
       if (settings.slowMode) chatHandler.slowMode(false);
     }
