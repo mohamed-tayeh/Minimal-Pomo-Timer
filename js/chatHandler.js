@@ -190,7 +190,7 @@ const chatHandler = (function () {
     if (!message) return;
     if (message === null || message == undefined) return;
     if (message === 'null' || message == 'undefined') return;
-    message = message.replace('{channel}', user.channel);
+    message = message.replace(constants.channelStr, user.channel);
     client.action(targetGlobal, message);
   }
 
