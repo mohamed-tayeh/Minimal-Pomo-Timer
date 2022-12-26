@@ -182,10 +182,21 @@ const logic = (function () {
   }
 
   /**
+   * Returns true if the goal is valid, false otherwise
+   * @param {number} newGoalNum
+   * @return {boolean} goal validity
+   */
+  function isValidGoal(newGoalNum) {
+    return 2 * newGoalNum >= cdCounter;
+  }
+
+  /**
    * Updates the current goal number
    * @param {number} newGoalNum - Brief description of the parameter here. Note: For other notations of data types, please refer to JSDocs: DataTypes command.
    */
   function updateGoal(newGoalNum) {
+    if (!isRunning) return false;
+
     let newCdCounterGoal = 2 * newGoalNum;
     if (newCdCounterGoal < cdCounter) return false;
 
@@ -335,6 +346,7 @@ const logic = (function () {
   module.startTimer = startTimer;
   module.updateCycle = updateCycle;
   module.updateGoal = updateGoal;
+  module.isValidGoal = isValidGoal;
   module.updateTime = updateTime;
   module.addTime = addTime;
   module.subTime = subTime;
