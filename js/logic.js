@@ -88,7 +88,6 @@ const logic = (function () {
     controller.updateLabel(settings.workLabel);
 
     if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
-    if (settings.slowMode) chatHandler.slowMode(true);
 
     cdCounter++;
     updateCycleCounter();
@@ -148,7 +147,6 @@ const logic = (function () {
       controller.playWorkSound();
 
       if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
-      if (settings.slowMode) chatHandler.slowMode(true);
     } else {
       if (isLongBreak()) {
         currTime = settings.longBreakTime;
@@ -165,7 +163,6 @@ const logic = (function () {
         discordHandler.sendDiscordBreakNotif();
 
       if (responses.breakMsg) chatHandler.chatItalicMessage(responses.breakMsg);
-      if (settings.slowMode) chatHandler.slowMode(false);
     }
   }
 

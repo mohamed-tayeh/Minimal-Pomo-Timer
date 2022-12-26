@@ -68,10 +68,6 @@ let configs = (function () {
   const alreadyStarting =
     'The stream is already starting or the timer is running!';
 
-  // Slow mode
-  const slowMode = false; // true or false
-  const slowModeTime = 3; // in seconds
-
   // Discord notifications
   const sendDiscord = false; // true or false
   const webHookURL = ''; // make sure to keep the '' around the url
@@ -114,8 +110,6 @@ let configs = (function () {
     workLabel,
     breakLabel,
     finishLabel,
-    slowMode,
-    slowModeTime,
     sendWorkTimeRemind,
     workTimeRemind,
     workSound,

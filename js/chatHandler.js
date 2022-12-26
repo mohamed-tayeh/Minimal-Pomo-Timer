@@ -203,18 +203,6 @@ const chatHandler = (function () {
   }
 
   /**
-   * Setting up slow mode
-   * @param {boolean} workTime - if currently work time
-   */
-  function slowMode(workTime) {
-    if (workTime) {
-      client.slow(targetGlobal, settings.slowModeTime);
-    } else {
-      client.slowoff(targetGlobal);
-    }
-  }
-
-  /**
    * Console logs when the timer connects to the channel
    * @note taken from twitch documentation: https://dev.twitch.tv/docs/irc
    */
@@ -225,7 +213,6 @@ const chatHandler = (function () {
 
   module.chatItalicMessage = chatItalicMessage;
   module.chatCommand = chatCommand;
-  module.slowMode = slowMode;
 
   return module;
 })();
