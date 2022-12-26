@@ -193,6 +193,7 @@ const logic = (function () {
     if (newCdCounterGoal < cdCounter) return false;
 
     cdCounterGoal = newCdCounterGoal;
+    settings.defaultPomoNumber = newGoalNum;
     updateCycleCounter();
     return true;
   }
