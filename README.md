@@ -49,6 +49,10 @@ oauth is a token that acts like a password that only allows the overlay to send 
 - !timer resume
 - !timer reset: clears the timer (also !timer clear)
 
+# Contribution
+
+I made this in a rush and using some code as boiler plate so the code quality is not the best. I am working on refactoring it:)
+
 # Credits
 
 I built this code using sacket's timer countown as initial boiler plate - found [here](https://www.youtube.com/watch?v=36q6zHG9vwQ&t=226s)
