@@ -4,7 +4,6 @@ const chatHandler = (function () {
   const module = {};
 
   const user = configs.user;
-  const settings = configs.settings;
   const responses = configs.responses;
   const isTesting = configs.settings.runTests;
 

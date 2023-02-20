@@ -150,19 +150,22 @@ const logic = (function () {
     } else {
       if (isLongBreak()) {
         currTime = settings.longBreakTime;
+        controller.updateLabel(settings.longBreakLabel);
+        controller.playLongBreakSound();
+        if (responses.longBreakMsg)
+          chatHandler.chatItalicMessage(responses.longBreakMsg);
       } else {
         currTime = settings.breakTime;
+        controller.updateLabel(settings.breakLabel);
+        controller.playBreakSound();
+        if (responses.breakMsg)
+          chatHandler.chatItalicMessage(responses.breakMsg);
       }
 
       if (settings.noLastBreak && cdCounter === cdCounterGoal) finishTimer();
 
-      controller.updateLabel(settings.breakLabel);
-      controller.playBreakSound();
-
       if (configs.discordSettings.sendDiscord)
         discordHandler.sendDiscordBreakNotif();
-
-      if (responses.breakMsg) chatHandler.chatItalicMessage(responses.breakMsg);
     }
   }
 

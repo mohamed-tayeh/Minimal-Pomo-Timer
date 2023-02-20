@@ -7,8 +7,10 @@ const controller = (function () {
 
   let workSound = new Audio(`./media/${settings.workSound}`);
   let breakSound = new Audio(`./media/${settings.breakSound}`);
+  let longBreakSound = new Audio(`./media/${settings.longBreakSound}`);
   workSound.volume = 0.8;
   breakSound.volume = 0.8;
+  longBreakSound.volume = 0.8;
 
   const labelId = 'label';
   const cdTimerId = 'cd-timer';
@@ -67,11 +69,19 @@ const controller = (function () {
     breakSound.play();
   }
 
+  /**
+   * Play the ending sound of the timer for a long break
+   */
+  function playLongBreakSound() {
+    longBreakSound.play();
+  }
+
   module.updateLabel = updateLabel;
   module.updateTime = updateTime;
   module.updateCycleCounter = updateCycleCounter;
   module.playWorkSound = playWorkSound;
   module.playBreakSound = playBreakSound;
+  module.playLongBreakSound = playLongBreakSound;
 
   return module;
 })();
