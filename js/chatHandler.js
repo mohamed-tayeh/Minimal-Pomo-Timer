@@ -88,6 +88,7 @@ const chatHandler = (function () {
       case 'goal':
         let goalSuccess = logic.updateGoal(secondParam);
         if (goalSuccess) chatItalicMessage(responses.commandSuccess);
+        else if (logic.isValidGoal(secondParam)) timerNotRunning(false);
         else chatItalicMessage(responses.goalWrong);
         break;
       case 'finish':

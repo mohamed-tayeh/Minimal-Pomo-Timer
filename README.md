@@ -79,8 +79,8 @@ const cycleSpaceRight = 'auto'; // Diff:auto for centered; negative px is right;
 const direction = 'column'; // row or column
 ```
 
-# Credits
+# Contribution
 
-I built this code using sacket's timer countown as initial boiler plate - found [here](https://www.youtube.com/watch?v=36q6zHG9vwQ&t=226s)
+I made this in a rush and using some code as boiler plate so the code quality is not the best. I am working on refactoring it:)
 
 Please star the repository on the top right or provide a link back to this page:)
