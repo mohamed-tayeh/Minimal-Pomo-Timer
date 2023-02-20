@@ -45,16 +45,42 @@ oauth is a token that acts like a password that only allows the overlay to send 
 - !timer 15:00: changes the time of the current Pomo to 15:00
 - !timer 600: changes the time of the pomo to 10:00 (works with seconds)
 - !timer add 50: adds 50 seconds to the current time
+- !timer sub 50: adds 50 seconds to the current time
 - !timer pause
 - !timer resume
 - !timer reset: clears the timer (also !timer clear)
 
+# Configs for round timer
+
+I recommend copying 1 by 1 just to be sure nothing gets messed up.
+
+```javascript
+// Styling - required
+const height = '250px';
+const width = '250px';
+const backgroundColor = '#000000'; // hex only
+const backgroundOpacity = 0.5; // 0 to 1 (0 is transparent)
+const backgroundRoundness = '100%';
+const textColor = 'white'; //  hex or name
+const fontFamily = 'Poppins'; // From google fonts: https://fonts.google.com
+const labelFontSize = '30px';
+const timeFontSize = '50px';
+const pomoFontSize = '30px';
+
+// Remember to change the height and width when changing these!
+const labelSpaceAbove = '0px';
+const labelSpaceLeft = 'auto'; // auto for centered; negative px is left; positive px is right
+const timeSpaceAbove = '0px'; // negative is up; positive is down
+const timeSpaceLeft = 'auto'; // auto for centered; negative px is left; positive px is right
+const cycleSpaceAbove = '100px'; // negative is up; positive is down
+const cycleSpaceRight = 'auto'; // Diff:auto for centered; negative px is right; positive px is left
+
+// Remember to change the above values when changing the following one
+const direction = 'column'; // row or column
+```
+
 # Contribution
 
 I made this in a rush and using some code as boiler plate so the code quality is not the best. I am working on refactoring it:)
-
-# Credits
-
-I built this code using sacket's timer countown as initial boiler plate - found [here](https://www.youtube.com/watch?v=36q6zHG9vwQ&t=226s)
 
 Please star the repository on the top right or provide a link back to this page:)

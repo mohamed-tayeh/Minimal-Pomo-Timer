@@ -10,7 +10,7 @@ let configs = (function () {
   const height = '150px';
   const width = '373px';
   const backgroundColor = '#000000'; // hex only
-  const backgroundOpacity = 0.5; // 0 to 1 (0 is transparent)
+  const backgroundOpacity = 0.2; // 0 to 1 (0 is transparent)
   const backgroundRoundness = '0px';
   const textColor = 'white'; //  hex or name
   const fontFamily = 'Poppins'; // From google fonts: https://fonts.google.com
@@ -20,24 +20,24 @@ let configs = (function () {
 
   // Remember to change the height and width when changing these!
   const labelSpaceAbove = '115px';
-  const labelSpaceLeft = '0px'; // negative is left; positive is right
+  const labelSpaceLeft = '0px'; // auto for centered; negative px is left; positive px is right
   const timeSpaceAbove = '-10px'; // negative is up; positive is down
-  const timeSpaceLeft = '-15px'; // negative is left; positive is right
+  const timeSpaceLeft = 'auto'; // auto for centered; negative px is left; positive px is right
   const cycleSpaceAbove = '115px'; // negative is up; positive is down
-  const cycleSpaceRight = '0px'; // Diff: negative is right; positive is left
+  const cycleSpaceRight = '0px'; // Diff:auto for centered; negative px is right; positive px is left
 
   // Remember to change the above values when changing the following one
   const direction = 'row'; // row or column
 
   // Time Configuration
-  const workTime = 3600; // in seconds
-  const breakTime = 600; // in seconds
+  const workTime = 5400; // in seconds
+  const breakTime = 900; // in seconds
   const longBreakTime = 900; // in seconds
   const longBreakEvery = 3; // long break every x pomos
-  const defaultPomoNumber = 8;
-  const workTimeRemind = 20;
+  const defaultPomoNumber = 5;
+  const workTimeRemind = 25;
   const sendWorkTimeRemind = true;
-  const startingTime = 600;
+  const startingTime = 300;
   const noLastBreak = true;
   const showHours = false; // true: time in hh:mm:ss; false: time in mm:ss always
   const showHoursIf00 = false; // true: will show 00:mm:ss, false: will show mm:ss when hours is 0
@@ -45,16 +45,19 @@ let configs = (function () {
   // Label Configuration
   const workLabel = 'Work';
   const breakLabel = 'Break';
+  const longBreakLabel = 'Break';
   const finishLabel = 'Finished!';
   const startingLabel = 'Starting';
 
   // Sound Configuration
-  const workSound = 'workSound.riff';
-  const breakSound = 'breakSound.riff';
+  const workSound = 'workSound.riff'; // works with any sound extension
+  const breakSound = 'breakSound.riff'; // ensure that the extension is put here
+  const longBreakSound = 'breakSound.riff';
 
   // Responses
   const workMsg = "It's work time 📏 📘"; // these are 7tv emotes
   const breakMsg = 'Time for a break! 🎶 🎮'; // works with emojis
+  const longBreakMsg = 'Time for a long break! 👀';
   const workRemindMsg = 'Time to get ready for focus @{channel} 💻'; // can be customized to anything
   const notMod = 'hhhhh not mod';
   const notRunning = 'The timer is not running to perform this command!';
@@ -71,7 +74,7 @@ let configs = (function () {
   // Discord notifications
   const sendDiscord = false; // true or false
   const webHookURL = ''; // make sure to keep the '' around the url
-  const roleID = '1050921202853617724'; // role id to ping, can be obtained by right clicking on the role
+  const roleID = '1050921202853617724'; // role id to ping, can be obtained by right clicking on the role (ensure to have developer mode on)
   const content = 'Stream is going on break! {role}'; // message to send
 
   // Please don't edit any of the lines below
@@ -86,6 +89,7 @@ let configs = (function () {
   const responses = {
     workMsg,
     breakMsg,
+    longBreakMsg,
     notMod,
     workRemindMsg,
     notRunning,
@@ -109,11 +113,13 @@ let configs = (function () {
     startingTime,
     workLabel,
     breakLabel,
+    longBreakLabel,
     finishLabel,
     sendWorkTimeRemind,
     workTimeRemind,
     workSound,
     breakSound,
+    longBreakSound,
     noLastBreak,
     runTests,
     showHours,
