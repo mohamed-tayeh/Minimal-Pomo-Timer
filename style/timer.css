@@ -18,6 +18,8 @@
   --time-space-left: 0px;
   --cycle-space-above: 0px;
   --cycle-space-right: 0px;
+  --text-outline-color: 'none';
+  --text-outline-size: 0px;
 }
 
 body {
@@ -60,6 +62,9 @@ body {
   flex-direction: var(--direction);
   align-items: center;
   justify-content: center;
+
+  padding-left: var(--text-outline-size);
+  padding-right: var(--text-outline-size);
 }
 
 #label {
@@ -98,4 +103,5 @@ body {
 #cd-timer,
 #cycle-counter {
   text-align: center;
+  -webkit-text-stroke: var(--text-outline-size) var(--text-outline-color);
 }
