@@ -17,6 +17,8 @@ let configs = (function () {
   const labelFontSize = '24px';
   const timeFontSize = '64px';
   const pomoFontSize = '24px';
+  const textOutlineColor = 'black'; // hex or name
+  const textOutlineSize = '0px';
 
   // Remember to change the height and width when changing these!
   const labelSpaceAbove = '115px';
@@ -144,6 +146,8 @@ let configs = (function () {
     timeSpaceLeft,
     cycleSpaceAbove,
     cycleSpaceRight,
+    textOutlineColor,
+    textOutlineSize,
   };
 
   const discordSettings = {

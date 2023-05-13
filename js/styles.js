@@ -86,6 +86,27 @@
       '--cycle-space-right',
       styles.cycleSpaceRight
     );
+
+    document.documentElement.style.setProperty(
+      '--cycle-space-right',
+      styles.cycleSpaceRight
+    );
+
+    document.documentElement.style.setProperty(
+      '--cycle-space-right',
+      styles.cycleSpaceRight
+    );
+
+    document.documentElement.style.setProperty(
+      '--text-outline-color',
+      styles.textOutlineColor
+    );
+
+    document.documentElement.style.setProperty(
+      '--text-outline-size',
+      styles.textOutlineSize
+    );
+
     document.documentElement.style.setProperty('--direction', styles.direction);
   }
 
