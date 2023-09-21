@@ -4,6 +4,8 @@ Pomodoro Twitch Overlay. I designed this for my co-working stream so that it is 
 
 This works by installing it onto your PC rather than having it hosted online on streamlabs or streamelements since that would be lighter on the PC and for example sounds when the timer finishes are less likely to get affected when you have a slow laptop/PC (used to have a laptop before PC and suffered from this).
 
+If streamelements is responding to the timer command, the streamelements timer command can be disabled here: https://streamelements.com/dashboard/bot/commands/default
+
 # Installation
 
 1. Download the zip to your desired location
