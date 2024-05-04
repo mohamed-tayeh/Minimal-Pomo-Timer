@@ -147,6 +147,9 @@ const logic = (function () {
       controller.playWorkSound();
 
       if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
+      // set work category
+      // if (settings.workCategory)
+      
     } else {
       if (isLongBreak()) {
         currTime = settings.longBreakTime;
@@ -166,6 +169,9 @@ const logic = (function () {
 
       if (configs.discordSettings.sendDiscord)
         discordHandler.sendDiscordBreakNotif();
+
+      // set play category
+      //if (settings.playCategory)
     }
   }
 
