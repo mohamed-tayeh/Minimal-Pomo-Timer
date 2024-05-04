@@ -79,6 +79,10 @@ let configs = (function () {
   const roleID = '1050921202853617724'; // role id to ping, can be obtained by right clicking on the role (ensure to have developer mode on)
   const content = 'Stream is going on break! {role}'; // message to send
 
+  // work/play category options
+  const workCategory = null; // e.g. "Just Chatting"
+  const playCategory = null; // e.g. "Hearthstone"
+
   // Please don't edit any of the lines below
   const runTests = false;
 
