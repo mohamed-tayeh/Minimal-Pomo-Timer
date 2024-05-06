@@ -148,7 +148,8 @@ const logic = (function () {
 
       if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
       // set work category
-      // if (settings.workCategory)
+      if (settings.workCategory)
+        chatHandler.chatCommand("!game " + settings.workCategory);
       
     } else {
       if (isLongBreak()) {
@@ -171,7 +172,8 @@ const logic = (function () {
         discordHandler.sendDiscordBreakNotif();
 
       // set play category
-      //if (settings.playCategory)
+      if (settings.playCategory)
+        chatHandler.chatCommand("!game " + settings.playCategory);
     }
   }
 
