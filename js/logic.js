@@ -149,7 +149,7 @@ const logic = (function () {
       if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
       // set work category
       if (settings.workCategory)
-        chatHandler.chatCommand("!game " + settings.workCategory);
+        chatHandler.chatCommand(settings.categoryCommand + " " + settings.workCategory);
       
     } else {
       if (isLongBreak()) {
@@ -173,7 +173,7 @@ const logic = (function () {
 
       // set play category
       if (settings.playCategory)
-        chatHandler.chatCommand("!game " + settings.playCategory);
+        chatHandler.chatCommand(settings.categoryCommand + " " + settings.playCategory);
     }
   }
 
