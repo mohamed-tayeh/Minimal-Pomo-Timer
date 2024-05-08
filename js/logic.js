@@ -93,6 +93,10 @@ const logic = (function () {
     updateCycleCounter();
     controller.playWorkSound();
     timer();
+
+    // set work category
+    if (settings.workCategory)
+      chatHandler.chatCommand(settings.categoryCommand + " " + settings.workCategory);
   }
 
   /**
