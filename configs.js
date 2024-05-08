@@ -82,6 +82,7 @@ let configs = (function () {
   // work/play category options
   const workCategory = null; // e.g. "Just Chatting"
   const playCategory = null; // e.g. "Hearthstone"
+  const categoryCommand = "!game";
 
   // Please don't edit any of the lines below
   const runTests = false;
@@ -131,7 +132,8 @@ let configs = (function () {
     showHours,
     showHoursIf00,
     workCategory,
-	  playCategory,
+    playCategory,
+    categoryCommand,
   };
 
   const styles = {
