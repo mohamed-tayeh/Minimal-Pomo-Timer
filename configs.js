@@ -130,6 +130,8 @@ let configs = (function () {
     runTests,
     showHours,
     showHoursIf00,
+    workCategory,
+	  playCategory,
   };
 
   const styles = {
