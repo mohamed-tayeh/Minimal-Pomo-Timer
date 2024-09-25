@@ -1,107 +1,106 @@
 :root {
-  --height: 400px;
-  --width: 400px;
-  --direction: 'row';
-  --text-color: 'white';
-  --background-opacity: 0;
-  --background-red: 0;
-  --background-green: 0;
-  --background-blue: 0;
-  --background-roundness: 0px;
-  --font-family: 'Poppins';
-  --label-font-size: 24px;
-  --time-font-size: 64px;
-  --pomo-font-size: 24px;
-  --label-space-above: 0px;
-  --label-space-left: 0px;
-  --time-space-above: 6px;
-  --time-space-left: 0px;
-  --cycle-space-above: 0px;
-  --cycle-space-right: 0px;
-  --text-outline-color: 'none';
-  --text-outline-size: 0px;
+	--height: 400px;
+	--width: 400px;
+	--direction: "row";
+	--text-color: "white";
+	--background-opacity: 0;
+	--background-red: 0;
+	--background-green: 0;
+	--background-blue: 0;
+	--background-roundness: 0px;
+	--font-family: "Poppins";
+	--label-font-size: 24px;
+	--time-font-size: 64px;
+	--pomo-font-size: 24px;
+	--label-space-above: 0px;
+	--label-space-left: 0px;
+	--time-space-above: 6px;
+	--time-space-left: 0px;
+	--cycle-space-above: 0px;
+	--cycle-space-right: 0px;
+	--text-outline-color: "none";
+	--text-outline-size: 0px;
 }
 
 body {
-  background-color: transparent;
-  font-family: var(--font-family), sans-serif;
-  font-weight: 400 !important;
+	background-color: transparent;
+	font-family: var(--font-family), sans-serif;
+	font-weight: 400 !important;
 }
 
 #container {
-  height: var(--height);
-  width: var(--width);
-  background-color: transparent;
+	height: var(--height);
+	width: var(--width);
+	background-color: transparent;
 
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 8px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	border-radius: 8px;
 
-  display: grid;
-  place-items: center;
+	display: grid;
+	place-items: center;
 }
 
 #cd-container {
-  background: rgba(
-    var(--background-red),
-    var(--background-green),
-    var(--background-blue),
-    var(--background-opacity)
-  );
-  color: var(--text-color);
-  z-index: 1;
+	background: rgba(
+		var(--background-red),
+		var(--background-green),
+		var(--background-blue),
+		var(--background-opacity)
+	);
+	color: var(--text-color);
+	z-index: 1;
 
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 
-  border-radius: var(--background-roundness);
+	border-radius: var(--background-roundness);
 
-  display: flex;
-  flex-direction: var(--direction);
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: var(--direction);
+	align-items: center;
+	justify-content: center;
 
-  padding-left: var(--text-outline-size);
-  padding-right: var(--text-outline-size);
+	padding-left: var(--text-outline-size);
+	padding-right: var(--text-outline-size);
 }
 
 #label {
-  text-align: center;
-  font-size: var(--label-font-size);
+	text-align: center;
+	font-size: var(--label-font-size);
 
-  margin-top: var(--label-space-above);
-  margin-left: var(--label-space-left);
-  margin-right: auto;
+	margin-top: var(--label-space-above);
+	margin-left: var(--label-space-left);
+	margin-right: auto;
 }
 
 #cd-timer {
-  position: absolute;
+	position: absolute;
 
-  z-index: 3;
-  text-transform: uppercase;
+	z-index: 3;
 
-  font-size: var(--time-font-size);
-  margin-top: var(--time-space-above);
-  margin-left: var(--time-space-left);
+	font-size: var(--time-font-size);
+	margin-top: var(--time-space-above);
+	margin-left: var(--time-space-left);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #cycle-counter {
-  font-size: var(--pomo-font-size);
-  margin-top: var(--cycle-space-above);
-  margin-left: auto;
-  margin-right: var(--cycle-space-right);
+	font-size: var(--pomo-font-size);
+	margin-top: var(--cycle-space-above);
+	margin-left: auto;
+	margin-right: var(--cycle-space-right);
 }
 
 /* Text format */
 #label,
 #cd-timer,
 #cycle-counter {
-  text-align: center;
-  -webkit-text-stroke: var(--text-outline-size) var(--text-outline-color);
+	text-align: center;
+	-webkit-text-stroke: var(--text-outline-size) var(--text-outline-color);
 }
