@@ -2,13 +2,13 @@ let configs = (function () {
 	"use strict";
 
 	// Authentication and channels
-	const channel = ""; // your channel
-	const username = ""; // bot account
-	const oauth = ""; // should be oauth:xxxxxxxxxxxx from the bot account
+	const channel = "rythondev"; // your channel
+	const username = "ryandotts"; // bot account
+	const oauth = "oauth:tn59rjjl7g3c71syq1ctl6rstmlyp7"; // should be oauth:xxxxxxxxxxxx from the bot account
 
 	// Styling - required
-	const height = "150px";
-	const width = "373px";
+	const height = "100vh";
+	const width = "100%";
 	const backgroundColor = "#000000"; // hex only
 	const backgroundOpacity = 0.2; // 0 to 1 (0 is transparent)
 	const backgroundRoundness = "0px";
@@ -32,16 +32,16 @@ let configs = (function () {
 	const direction = "row"; // row or column
 
 	// Time Configuration
-	const workTime = 5400; // in seconds
-	const breakTime = 900; // in seconds
-	const longBreakTime = 900; // in seconds
+	const workTime = 50 * 60; // in seconds
+	const breakTime = 10 * 60; // in seconds
+	const longBreakTime = 15 * 60; // in seconds
 	const longBreakEvery = 3; // long break every x pomos
-	const defaultPomoNumber = 5;
+	const defaultPomoNumber = 3;
 	const workTimeRemind = 25;
 	const sendWorkTimeRemind = true;
 	const startingTime = 300;
 	const noLastBreak = true;
-	const showHours = false; // true: time in hh:mm:ss; false: time in mm:ss always
+	const showHours = true; // true: time in hh:mm:ss; false: time in mm:ss always
 	const showHoursIf00 = false; // true: will show 00:mm:ss, false: will show mm:ss when hours is 0
 
 	// Label Configuration
@@ -61,7 +61,7 @@ let configs = (function () {
 	const breakMsg = "Time for a break! 🎶 🎮"; // works with emojis
 	const longBreakMsg = "Time for a long break! 👀";
 	const workRemindMsg = "Time to get ready for focus @{channel} 💻"; // can be customized to anything
-	const notMod = "hhhhh not mod";
+	const notMod = "LOL you not mod";
 	const notRunning = "The timer is not running to perform this command!";
 	const streamStarting = "Stream is starting!";
 	const wrongCommand = "Command not recognized!";
@@ -76,12 +76,16 @@ let configs = (function () {
 	const flowingMsg =
 		"The timer is currently in flow mode, change to pomodoro mode with !timer pomo";
 	const pomoMsg = "The timer is now in pomodoro mode! 🍅";
+	const helpMsg =
+		"Timer commands can be found here: https://github.com/liyunze-coding/Minimal-Pomo-Timer?tab=readme-ov-file#how-to-use";
 
 	// Discord notifications
-	const sendDiscord = false; // true or false
-	const webHookURL = ""; // make sure to keep the '' around the url
-	const roleID = "1050921202853617724"; // role id to ping, can be obtained by right clicking on the role (ensure to have developer mode on)
-	const content = "Stream is going on break! {role}"; // message to send
+	const sendDiscord = true; // true or false
+	const webHookURL =
+		"https://discord.com/api/webhooks/1101518991492665404/ln0K_g1IFtSHMeBFVh7EiPv_H5Ha1iv1D8ywh-Y6SGnZs8wwTPKnSXR6abd2CO8qnfgR"; // make sure to keep the '' around the url
+	const roleID = "1052576825504698388"; // role id to ping, can be obtained by right clicking on the role (ensure to have developer mode on)
+	const content =
+		"{role} \n<https://twitch.tv/RythonDev>\nStream is going on a break!"; // message to send
 
 	// Please don't edit any of the lines below
 	const runTests = false;

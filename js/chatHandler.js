@@ -105,6 +105,9 @@ const chatHandler = (function () {
 				if (logic.displayPomoTime())
 					chatItalicMessage(responses.pomoMsg);
 				break;
+			case "help":
+				chatItalicMessage(responses.helpMsg);
+				break;
 			default:
 				parsedTime = parseTime(firstParam);
 
