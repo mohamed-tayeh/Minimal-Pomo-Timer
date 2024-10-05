@@ -114,6 +114,7 @@ let configs = (function () {
 		flowMsg,
 		flowingMsg,
 		pomoMsg,
+		helpMsg,
 	};
 
 	const settings = {
