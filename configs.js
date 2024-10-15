@@ -32,8 +32,8 @@ let configs = (function () {
 	const direction = "row"; // row or column
 
 	// Time Configuration
-	const workTime = 40 * 60; // in seconds
-	const breakTime = 20 * 60; // in seconds
+	const workTime = 50 * 60; // in seconds
+	const breakTime = 10 * 60; // in seconds
 	const longBreakTime = 15 * 60; // in seconds
 	const longBreakEvery = 3; // long break every x pomos
 	const defaultPomoNumber = 3;
