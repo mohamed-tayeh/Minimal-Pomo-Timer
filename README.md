@@ -40,7 +40,7 @@ oauth is a token that acts like a password that only allows the overlay to send 
 
 # How to use
 
-- !timer help: shows this message
+- !timer help: shows the help message
 - !timer flow: set to flow mode
 - !timer pomo: set to pomo mode
 - !timer start: begins the timer with the defauly configuration
