@@ -52,6 +52,7 @@ oauth is a token that acts like a password that only allows the overlay to send 
 - !timer resume
 - !timer reset: clears the timer (also !timer clear)
 - !timer flow: sets timer to display "Flow"
+- !timer pomo: changes from "flow" mode to "pomodoro" mode
 - !timer help: shows you the help message
 
 # Configs for round timer
