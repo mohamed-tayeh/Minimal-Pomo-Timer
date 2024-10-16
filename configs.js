@@ -72,6 +72,12 @@ let configs = (function () {
   const finishResponse = 'Good work today everyone 💪🏽';
   const alreadyStarting =
     'The stream is already starting or the timer is running!';
+  const flowMsg = 'The timer is now in a flow state! 🌊';
+  const flowingMsg =
+    'The timer is currently in flow mode, change to pomodoro mode with !timer pomo';
+  const pomoMsg = 'The timer is now in pomodoro mode! 🍅';
+  const helpMsg =
+    'Timer commands can be found here: https://github.com/liyunze-coding/Minimal-Pomo-Timer?tab=readme-ov-file#how-to-use';
 
   // Discord notifications
   const sendDiscord = false; // true or false
@@ -103,6 +109,10 @@ let configs = (function () {
     goalWrong,
     finishResponse,
     alreadyStarting,
+    flowMsg,
+    flowingMsg,
+    pomoMsg,
+    helpMsg,
   };
 
   const settings = {

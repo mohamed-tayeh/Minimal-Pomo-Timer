@@ -97,6 +97,15 @@ const chatHandler = (function () {
         let finishSuccess = logic.finishTimer();
         if (!finishSuccess) chatItalicMessage(responses.notRunning);
         break;
+      case 'flow':
+        if (logic.displayFlowTime()) chatItalicMessage(responses.flowMsg);
+        break;
+      case 'pomo':
+        if (logic.displayPomoTime()) chatItalicMessage(responses.pomoMsg);
+        break;
+      case 'help':
+        chatItalicMessage(responses.helpMsg);
+        break;
       default:
         parsedTime = parseTime(firstParam);
 

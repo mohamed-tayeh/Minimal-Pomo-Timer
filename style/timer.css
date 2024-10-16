@@ -80,7 +80,6 @@ body {
   position: absolute;
 
   z-index: 3;
-  text-transform: uppercase;
 
   font-size: var(--time-font-size);
   margin-top: var(--time-space-above);
