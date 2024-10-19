@@ -84,8 +84,8 @@ let testRunner = (function () {
    */
   function finishThenStart() {
     setTimeout(chatHandler.chatCommand('!timer start'), 1000);
-    seTimeout(chatHandler.chatCommand('!timer finish'), 2000);
-    seTimeout(chatHandler.chatCommand('!start'), 4000);
+    setTimeout(chatHandler.chatCommand('!timer finish'), 2000);
+    setTimeout(chatHandler.chatCommand('!start'), 4000);
   }
 
   /**

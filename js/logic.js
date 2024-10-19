@@ -5,6 +5,7 @@ const logic = (function () {
 
   const settings = configs.settings;
   const responses = configs.responses;
+  const styles = configs.styles;
 
   let isRunning;
   let isPaused;
@@ -308,7 +309,11 @@ const logic = (function () {
    * @return {boolean} success or fail
    */
   function pauseTimer(pause) {
-    if (!isRunning || isFlowing) return false;
+    if (!isRunning) return false;
+    // Automatically display pomodoro time if it's in flow mode, then resume
+    if (!pause && isFlowing) {
+      displayPomoTime();
+    }
     isPaused = pause;
     return true;
   }
@@ -370,14 +375,15 @@ const logic = (function () {
       chatHandler.chatItalicMessage(responses.flowingMsg);
       return false;
     }
+
+    // Pause the timer if it is running
     if (isRunning && !isPaused) {
-      chatHandler.chatItalicMessage(responses.timerRunning);
-      return false;
+      isPaused = true;
     }
 
     controller.updateLabel('');
     controller.updateCycleCounter('');
-    controller.updateTime('Flow');
+    controller.updateTime(styles.flowDisplay);
     isFlowing = true;
     return true;
   }

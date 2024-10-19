@@ -29,85 +29,30 @@
     let green = parseInt(backgroundColor.slice(2, 4), 16);
     let blue = parseInt(backgroundColor.slice(4, 6), 16);
 
-    document.documentElement.style.setProperty('--background-red', red);
-    document.documentElement.style.setProperty('--background-green', green);
-    document.documentElement.style.setProperty('--background-blue', blue);
-    document.documentElement.style.setProperty(
-      '--background-roundness',
-      styles.backgroundRoundness
-    );
+    const styleProperties = [
+      { cssVar: '--background-red', value: red },
+      { cssVar: '--background-green', value: green },
+      { cssVar: '--background-blue', value: blue },
+      { cssVar: '--background-roundness', value: styles.backgroundRoundness },
+      { cssVar: '--font-family', value: styles.fontFamily },
+      { cssVar: '--label-font-size', value: styles.labelFontSize },
+      { cssVar: '--time-font-size', value: styles.timeFontSize },
+      { cssVar: '--pomo-font-size', value: styles.pomoFontSize },
+      { cssVar: '--label-space-above', value: styles.labelSpaceAbove },
+      { cssVar: '--label-space-left', value: styles.labelSpaceLeft },
+      { cssVar: '--time-space-above', value: styles.timeSpaceAbove },
+      { cssVar: '--time-space-left', value: styles.timeSpaceLeft },
+      { cssVar: '--cycle-space-above', value: styles.cycleSpaceAbove },
+      { cssVar: '--cycle-space-right', value: styles.cycleSpaceRight },
+      { cssVar: '--text-outline-color', value: styles.textOutlineColor },
+      { cssVar: '--text-outline-size', value: styles.textOutlineSize },
+      { cssVar: '--direction', value: styles.direction },
+      { cssVar: '--text-transform', value: styles.textTransform },
+    ];
 
-    document.documentElement.style.setProperty(
-      '--font-family',
-      styles.fontFamily
-    );
-
-    document.documentElement.style.setProperty(
-      '--label-font-size',
-      styles.labelFontSize
-    );
-
-    document.documentElement.style.setProperty(
-      '--time-font-size',
-      styles.timeFontSize
-    );
-
-    document.documentElement.style.setProperty(
-      '--pomo-font-size',
-      styles.pomoFontSize
-    );
-
-    document.documentElement.style.setProperty(
-      '--label-space-above',
-      styles.labelSpaceAbove
-    );
-
-    document.documentElement.style.setProperty(
-      '--label-space-left',
-      styles.labelSpaceLeft
-    );
-
-    document.documentElement.style.setProperty(
-      '--time-space-above',
-      styles.timeSpaceAbove
-    );
-
-    document.documentElement.style.setProperty(
-      '--time-space-left',
-      styles.timeSpaceLeft
-    );
-
-    document.documentElement.style.setProperty(
-      '--cycle-space-above',
-      styles.cycleSpaceAbove
-    );
-
-    document.documentElement.style.setProperty(
-      '--cycle-space-right',
-      styles.cycleSpaceRight
-    );
-
-    document.documentElement.style.setProperty(
-      '--cycle-space-right',
-      styles.cycleSpaceRight
-    );
-
-    document.documentElement.style.setProperty(
-      '--cycle-space-right',
-      styles.cycleSpaceRight
-    );
-
-    document.documentElement.style.setProperty(
-      '--text-outline-color',
-      styles.textOutlineColor
-    );
-
-    document.documentElement.style.setProperty(
-      '--text-outline-size',
-      styles.textOutlineSize
-    );
-
-    document.documentElement.style.setProperty('--direction', styles.direction);
+    styleProperties.forEach(({ cssVar, value }) => {
+      document.documentElement.style.setProperty(cssVar, value);
+    });
   }
 
   /**

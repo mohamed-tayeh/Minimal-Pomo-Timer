@@ -20,6 +20,7 @@
   --cycle-space-right: 0px;
   --text-outline-color: 'none';
   --text-outline-size: 0px;
+  --text-transform: uppercase;
 }
 
 body {
@@ -80,6 +81,8 @@ body {
   position: absolute;
 
   z-index: 3;
+
+  text-transform: var(--text-transform);
 
   font-size: var(--time-font-size);
   margin-top: var(--time-space-above);
