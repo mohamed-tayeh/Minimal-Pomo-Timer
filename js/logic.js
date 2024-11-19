@@ -11,10 +11,10 @@ const logic = (function () {
     });
   }
   async function connect() {
-    if (!obsConfig.address) return
+    if (!obsConfig.port) return
 
-    console.debug("Connecting to OBS WebSocket", obsConfig.address);
-    obsSocket = new WebSocket("ws://" + obsConfig.address);
+    console.debug("Connecting to OBS WebSocket ws://localhost:", obsConfig.port);
+    obsSocket = new WebSocket("ws://localhost:" + obsConfig.port);
 
     obsSocket.onopen = function () {
       console.log('Connected to OBS WebSocket');
@@ -61,8 +61,7 @@ const logic = (function () {
   }
 
   async function changeScene(sceneName) {
-    async function connect() {
-      if (!obsConfig.address || !sceneName) return
+    if (!obsConfig.port || !sceneName) return
   
     const changeSceneMessage = {
       "op": 6,

@@ -9,7 +9,7 @@ let configs = (function () {
   const sceneBreak = ''; // scene name for when it's break time
   const sceneWork = ''; // scene name for when it's work time
 
-  const address = 'localhost:4444'; // This is the default address for OBS WebSocket, you may have to change the port (the numbers after the colon) to whatever it says in the OBS WebSocket settings
+  const port = '4444'; // this should be automatically set in the OBS WebSocket Settings to 4444, but it may be something different, just type it in between the quotes
   const password = ''; // set this in OBS WebSocket settings
 
   // Styling - required
@@ -164,7 +164,7 @@ let configs = (function () {
   };
 
   const obs = {
-    address,
+    port,
     password,
     sceneBreak,
     sceneWork,
