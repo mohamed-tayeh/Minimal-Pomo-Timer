@@ -80,9 +80,9 @@ let configs = (function () {
   const content = 'Stream is going on break! {role}'; // message to send
 
   // work/play category options
-  const workCategory = null; // e.g. "Just Chatting"
-  const playCategory = null; // e.g. "Hearthstone"
-  const categoryCommand = "!game";
+  const workCategory = ''; // e.g. "Co-working & Studying"
+  const playCategory = ''; // e.g. "Hearthstone"
+  const categoryCommand = '!game';
 
   // Please don't edit any of the lines below
   const runTests = false;
