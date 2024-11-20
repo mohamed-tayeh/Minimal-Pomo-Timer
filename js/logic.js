@@ -95,8 +95,11 @@ const logic = (function () {
     timer();
 
     // set work category
-    if (settings.workCategory)
-      chatHandler.chatCommand(settings.categoryCommand + " " + settings.workCategory);
+    if (settings.workCategory != '') {
+      chatHandler.chatCommand(
+        settings.categoryCommand + ' ' + settings.workCategory
+      );
+    }
   }
 
   /**
@@ -153,8 +156,9 @@ const logic = (function () {
       if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
       // set work category
       if (settings.workCategory)
-        chatHandler.chatCommand(settings.categoryCommand + " " + settings.workCategory);
-      
+        chatHandler.chatCommand(
+          settings.categoryCommand + ' ' + settings.workCategory
+        );
     } else {
       if (isLongBreak()) {
         currTime = settings.longBreakTime;
@@ -176,8 +180,11 @@ const logic = (function () {
         discordHandler.sendDiscordBreakNotif();
 
       // set play category
-      if (settings.playCategory)
-        chatHandler.chatCommand(settings.categoryCommand + " " + settings.playCategory);
+      if (settings.playCategory !== '') {
+        chatHandler.chatCommand(
+          settings.categoryCommand + ' ' + settings.playCategory
+        );
+      }
     }
   }
 
