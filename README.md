@@ -27,7 +27,7 @@ Within the folder, find and open the file called `configs.js` using `notepad`
 The file should look like this with comments on how to change the default configurations:
 ![image](https://user-images.githubusercontent.com/35163331/165657486-a4660bdf-41e9-4baa-99a4-9aba595e6df6.png)
 
-Channel: channel for which to connect the bot to
+Channel: channel for which to connect the bot to<BR>
 username: username of the bot you which to have connected to this overlay, e.g. I have a separate bot called `moh_manager` for my channel that is connected to all the overlays.
 
 For oauth do the following steps:
@@ -37,6 +37,10 @@ For oauth do the following steps:
 3. Paste into configs
 
 oauth is a token that acts like a password that only allows the overlay to send messages on behalf of that account.
+
+workCategory, playCategory: These are null (unused) by default, but if you want to set them to valid Twitch categories,
+then the timer will automatically use the categoryCommand (defaults to !game) to set your category when the timer goes off.
+Useful if you forget to set it constantly like I do!
 
 # How to use
 
