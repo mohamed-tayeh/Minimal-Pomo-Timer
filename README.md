@@ -44,17 +44,20 @@ Useful if you forget to set it constantly like I do!
 
 # How to use
 
-- !timer start: begins the timer with the defauly configuration
+- !timer start: begins the timer with the default configuration
 - !timer goal 10: changes the timer goal to 10
 - !timer cycle 5: changes the current timer cycle to 5
 - !timer skip: skips the current session (either work or break)
 - !timer 15:00: changes the time of the current Pomo to 15:00
 - !timer 600: changes the time of the pomo to 10:00 (works with seconds)
 - !timer add 50: adds 50 seconds to the current time
-- !timer sub 50: adds 50 seconds to the current time
+- !timer sub 50: subtracts 50 seconds to the current time
 - !timer pause
 - !timer resume
 - !timer reset: clears the timer (also !timer clear)
+- !timer flow: sets timer to display "flow"
+- !timer pomo: changes from "flow" mode to "pomodoro" mode
+- !timer help: shows you the help message
 
 # Configs for round timer
 

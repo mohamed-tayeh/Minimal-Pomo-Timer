@@ -19,6 +19,8 @@ let configs = (function () {
   const pomoFontSize = '24px';
   const textOutlineColor = 'black'; // hex or name
   const textOutlineSize = '0px';
+  const flowDisplay = 'Flow'; // flow mode display message
+  const textTransform = 'none'; // uppercase, lowercase, capitalize, none
 
   // Remember to change the height and width when changing these!
   const labelSpaceAbove = '115px';
@@ -32,9 +34,9 @@ let configs = (function () {
   const direction = 'row'; // row or column
 
   // Time Configuration
-  const workTime = 5400; // in seconds
-  const breakTime = 900; // in seconds
-  const longBreakTime = 900; // in seconds
+  const workTime = 90 * 60; // in seconds
+  const breakTime = 15 * 60; // in seconds
+  const longBreakTime = 15 * 60; // in seconds
   const longBreakEvery = 3; // long break every x pomos
   const defaultPomoNumber = 5;
   const workTimeRemind = 25;
@@ -72,6 +74,12 @@ let configs = (function () {
   const finishResponse = 'Good work today everyone 💪🏽';
   const alreadyStarting =
     'The stream is already starting or the timer is running!';
+  const flowMsg = 'The timer is now in a flow state! 🌊';
+  const flowingMsg =
+    'The timer is currently in flow mode, change to pomodoro mode with !timer pomo';
+  const pomoMsg = 'The timer is now in pomodoro mode! 🍅';
+  const helpMsg =
+    '!timer [start/pause/resume/skip/reset] | !timer [add/sub] 50 | !timer 50:00 | More commands with explanation: https://github.com/mohamed-tayeh/Minimal-Pomo-Timer?tab=readme-ov-file#how-to-use';
 
   // Discord notifications
   const sendDiscord = false; // true or false
@@ -108,6 +116,10 @@ let configs = (function () {
     goalWrong,
     finishResponse,
     alreadyStarting,
+    flowMsg,
+    flowingMsg,
+    pomoMsg,
+    helpMsg,
   };
 
   const settings = {
@@ -156,6 +168,8 @@ let configs = (function () {
     cycleSpaceRight,
     textOutlineColor,
     textOutlineSize,
+    textTransform,
+    flowDisplay,
   };
 
   const discordSettings = {

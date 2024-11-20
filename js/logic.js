@@ -5,6 +5,7 @@ const logic = (function () {
 
   const settings = configs.settings;
   const responses = configs.responses;
+  const styles = configs.styles;
 
   let isRunning;
   let isPaused;
@@ -12,6 +13,7 @@ const logic = (function () {
   let currTime;
   let cdCounter;
   let cdCounterGoal;
+  let isFlowing;
 
   /**
    * Inits the pomo timer for work time
@@ -19,6 +21,7 @@ const logic = (function () {
   function initTimer() {
     isRunning = false;
     isPaused = false;
+    isFlowing = false;
     currTime = settings.workTime;
     cdCounter = 0;
     cdCounterGoal = settings.defaultPomoNumber * 2;
@@ -36,7 +39,7 @@ const logic = (function () {
    */
   function starting() {
     // Timer already running or starting timer is running
-    if ((isRunning && !isStarting) || isStarting) return false;
+    if ((isRunning && !isStarting) || isStarting || isFlowing) return false;
 
     isRunning = true;
     isStarting = true;
@@ -54,7 +57,7 @@ const logic = (function () {
    * Recursive function for the starting screen timer
    */
   function startingTimer() {
-    if (!isStarting) return;
+    if (!isStarting || isFlowing) return;
     if (isPaused && isStarting) {
       setTimeout(startingTimer, 1000);
       return;
@@ -75,6 +78,10 @@ const logic = (function () {
    * Sets up the first cycle of work time
    */
   function startTimer() {
+    if (isFlowing) {
+      chatHandler.chatItalicMessage(responses.flowingMsg);
+      return;
+    }
     if (isRunning && !isStarting) {
       chatHandler.chatItalicMessage(responses.timerRunning);
       return;
@@ -106,7 +113,7 @@ const logic = (function () {
    * Starts the timer with the currTime and u
    */
   function timer() {
-    controller.updateTime(formatCurrTime());
+    if (!isFlowing) controller.updateTime(formatCurrTime());
 
     if (isPaused && isRunning) {
       setTimeout(timer, 1000);
@@ -144,6 +151,10 @@ const logic = (function () {
    * @summary updates cycle counter and currTime
    */
   function updateTimerWithNextCycle() {
+    if (isFlowing) {
+      chatHandler.chatItalicMessage(responses.flowingMsg);
+      return;
+    }
     cdCounter++;
     updateCycleCounter();
 
@@ -193,6 +204,10 @@ const logic = (function () {
    * @param {number} newCycleNum
    */
   function updateCycle(newCycleNum) {
+    if (isFlowing) {
+      chatHandler.chatItalicMessage(responses.flowingMsg);
+      return;
+    }
     let newCdCounter = 2 * newCycleNum;
     if (newCdCounter > cdCounterGoal) return false;
 
@@ -217,8 +232,10 @@ const logic = (function () {
    * @param {number} newGoalNum - Brief description of the parameter here. Note: For other notations of data types, please refer to JSDocs: DataTypes command.
    */
   function updateGoal(newGoalNum) {
-    if (!isRunning) return false;
-
+    if (isFlowing) {
+      chatHandler.chatItalicMessage(responses.flowingMsg);
+      return;
+    }
     let newCdCounterGoal = 2 * newGoalNum;
     if (newCdCounterGoal < cdCounter) return false;
 
@@ -312,6 +329,10 @@ const logic = (function () {
    */
   function pauseTimer(pause) {
     if (!isRunning) return false;
+    // Automatically display pomodoro time if it's in flow mode, then resume
+    if (!pause && isFlowing) {
+      displayPomoTime();
+    }
     isPaused = pause;
     return true;
   }
@@ -364,6 +385,40 @@ const logic = (function () {
     return minutes + ':' + seconds;
   }
 
+  /**
+   * Displays Flow state on timer
+   * @return {boolean}
+   */
+  function displayFlowTime() {
+    if (isFlowing) {
+      chatHandler.chatItalicMessage(responses.flowingMsg);
+      return false;
+    }
+
+    // Pause the timer if it is running
+    if (isRunning && !isPaused) {
+      isPaused = true;
+    }
+
+    controller.updateLabel('');
+    controller.updateCycleCounter('');
+    controller.updateTime(styles.flowDisplay);
+    isFlowing = true;
+    return true;
+  }
+
+  /**
+   * Displays Pomo time on timer
+   * @return {boolean}
+   */
+  function displayPomoTime() {
+    controller.updateTime(formatCurrTime());
+    controller.updateLabel(settings.workLabel);
+    updateCycleCounter();
+    isFlowing = false;
+    return true;
+  }
+
   module.starting = starting;
   module.startTimer = startTimer;
   module.updateCycle = updateCycle;
@@ -375,6 +430,8 @@ const logic = (function () {
   module.skipCycle = skipCycle;
   module.pauseTimer = pauseTimer;
   module.finishTimer = finishTimer;
+  module.displayFlowTime = displayFlowTime;
+  module.displayPomoTime = displayPomoTime;
 
   return module;
 })();
