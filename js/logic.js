@@ -1,5 +1,86 @@
 const logic = (function () {
   'use strict';
+  
+  const obsConfig = configs.obs;
+  let obsSocket;
+  function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+  async function connect() {
+    if (!obsConfig.port) return
+
+    console.debug("Connecting to OBS WebSocket ws://localhost:", obsConfig.port);
+    obsSocket = new WebSocket("ws://localhost:" + obsConfig.port);
+
+    obsSocket.onopen = function () {
+      console.log('Connected to OBS WebSocket');
+    };
+
+    obsSocket.onclose = function () {
+      console.log('Disconnected from OBS WebSocket');
+    };
+
+    obsSocket.onerror = function (error) {
+      console.error('OBS WebSocket error:', error);
+    };
+
+    obsSocket.onmessage = function (message) {
+      const data = JSON.parse(message.data);
+      if (data.op === 0) {
+        authenticate(data.d);
+      }
+    };
+  }
+  async function authenticate(data) {
+    const passwordSalt = configs.obs.password + data.authentication.salt;
+
+    const shaObj1 = new jsSHA("SHA-256", "TEXT");
+    shaObj1.update(passwordSalt);
+    const base64Secret = shaObj1.getHash("B64");
+
+    const secretChallenge = base64Secret + data.authentication.challenge;
+
+    const shaObj2 = new jsSHA("SHA-256", "TEXT");
+    shaObj2.update(secretChallenge);
+    const authString = shaObj2.getHash("B64");
+  
+    const authMessage = {
+      "op": 1,
+      "d": {
+        "rpcVersion": 1,
+        "authentication": authString,
+      }
+    };
+  
+    // Send the authentication message
+    obsSocket.send(JSON.stringify(authMessage));
+  }
+
+  async function changeScene(sceneName) {
+    if (!obsConfig.port || !sceneName) return
+  
+    const changeSceneMessage = {
+      "op": 6,
+      "d": {
+        "requestType": "SetCurrentProgramScene",
+        "requestId": generateUUID(),
+        "requestData": {
+          "sceneName": sceneName
+        }
+      }
+    };
+    obsSocket.send(JSON.stringify(changeSceneMessage));
+    console.log(`Scene changed to: ${sceneName}`);
+  }
+
+  window.obsHandler = {
+    connect,
+    changeScene
+  };
 
   const module = {};
 
@@ -22,6 +103,9 @@ const logic = (function () {
     currTime = settings.workTime;
     cdCounter = 0;
     cdCounterGoal = settings.defaultPomoNumber * 2;
+
+    // Setup OBS Websocket
+    obsHandler.connect();
 
     // Initial look of the timer
     controller.updateLabel(settings.workLabel);
@@ -89,6 +173,9 @@ const logic = (function () {
 
     if (responses.workMsg) chatHandler.chatItalicMessage(responses.workMsg);
 
+    // Start the timer
+    obsHandler.changeScene(configs.obs.sceneWork);
+
     cdCounter++;
     updateCycleCounter();
     controller.playWorkSound();
@@ -148,6 +235,7 @@ const logic = (function () {
     updateCycleCounter();
 
     if (isWorkTime()) {
+      obsHandler.changeScene(configs.obs.sceneWork);
       currTime = settings.workTime;
 
       controller.updateLabel(settings.workLabel);
@@ -160,6 +248,7 @@ const logic = (function () {
           settings.categoryCommand + ' ' + settings.workCategory
         );
     } else {
+      obsHandler.changeScene(configs.obs.sceneBreak);
       if (isLongBreak()) {
         currTime = settings.longBreakTime;
         controller.updateLabel(settings.longBreakLabel);
