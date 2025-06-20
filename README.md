@@ -49,8 +49,8 @@ Useful if you forget to set it constantly like I do!
 - !timer goal 10: changes the timer goal to 10
 - !timer cycle 5: changes the current timer cycle to 5
 - !timer skip: skips the current session (either work or break)
-- !timer 15:00: changes the time of the current Pomo to 15:00
-- !timer 600: changes the time of the pomo to 10:00 (works with seconds)
+- !timer 15m or 15:00: changes the time of the current Pomo to 15:00
+- !timer 10m or 600s or 600: changes the time of the pomo to 10:00 (works with seconds)
 - !timer add 50: adds 50 seconds to the current time
 - !timer sub 50: adds 50 seconds to the current time
 - !timer pause
