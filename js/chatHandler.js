@@ -156,20 +156,23 @@ const chatHandler = (function () {
     let minutes = 0;
     let seconds = 0;
 
-    let split = time.split(':');
+    if (/[hms]/i.test(time)) {
+      let hourMatch = time.match(/(\d+)h/i);
+      let minuteMatch = time.match(/(\d+)m/i);
+      let secondMatch = time.match(/(\d+)s/i);
 
-    if (split.length === 3) {
-      hours = parseInt(split[0]) * 60 * 60;
-      minutes = parseInt(split[1]) * 60;
-      seconds = parseInt(split[2]);
-    } else if (split.length === 2) {
-      hours = 0;
-      minutes = parseInt(split[0]) * 60;
-      seconds = parseInt(split[1]);
+      if (hourMatch) hours = parseInt(hourMatch[1], 10) * 3600;
+      if (minuteMatch) minutes = parseInt(minuteMatch[1], 10) * 60;
+      if (secondMatch) seconds = parseInt(secondMatch[1], 10);
+
     } else {
-      hours = 0;
-      minutes = 0;
-      seconds = parseInt(split[0]);
+      const match = time.match(/^((\d+):)?((\d+):)?(\d+)$/);
+
+      if (match) {
+        hours = parseInt(match[2] || "0", 10) * 3600;
+        minutes = parseInt(match[4] || "0", 10) * 60;
+        seconds = parseInt(match[5] || "0", 10);
+      }
     }
 
     let timeInSeconds = hours + minutes + seconds;
