@@ -156,19 +156,19 @@ const chatHandler = (function () {
 
     const hmsMatch = time.match(/(\d+)h|(\d+)m|(\d+)s/i);
     if (hmsMatch) {
-      hours = parseInt(hmsMatch[1] || 0) * 3600;
-      minutes = parseInt(hmsMatch[2] || 0) * 60;
+      hours = parseInt(hmsMatch[1] || 0);
+      minutes = parseInt(hmsMatch[2] || 0);
       seconds = parseInt(hmsMatch[3] || 0);
     }
 
     const colonMatch = time.match(/^(?:(\d+):)?(?:(\d+):)?(\d+)$/);
     if (colonMatch) {
-      hours = parseInt(colonMatch[1] || 0) * 3600;
-      minutes = parseInt(colonMatch[2] || 0) * 60;
+      hours = parseInt(colonMatch[1] || 0);
+      minutes = parseInt(colonMatch[2] || 0);
       seconds = parseInt(colonMatch[3] || 0);
     }
 
-    return hours + minutes + seconds;
+    return hours * 3600 + minutes * 60 + seconds;
   }
   
   function timerNotRunning(success) {
