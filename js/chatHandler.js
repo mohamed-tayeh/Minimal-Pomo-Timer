@@ -152,34 +152,25 @@ const chatHandler = (function () {
    * @return time in seconds or null if invalid
    */
   function parseTime(time) {
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
+    let hours = 0, minutes = 0, seconds = 0;
 
-    if (/[hms]/i.test(time)) {
-      let hourMatch = time.match(/(\d+)h/i);
-      let minuteMatch = time.match(/(\d+)m/i);
-      let secondMatch = time.match(/(\d+)s/i);
-
-      if (hourMatch) hours = parseInt(hourMatch[1], 10) * 3600;
-      if (minuteMatch) minutes = parseInt(minuteMatch[1], 10) * 60;
-      if (secondMatch) seconds = parseInt(secondMatch[1], 10);
-
-    } else {
-      const match = time.match(/^((\d+):)?((\d+):)?(\d+)$/);
-
-      if (match) {
-        hours = parseInt(match[2] || "0", 10) * 3600;
-        minutes = parseInt(match[4] || "0", 10) * 60;
-        seconds = parseInt(match[5] || "0", 10);
-      }
+    const hmsMatch = time.match(/(\d+)h|(\d+)m|(\d+)s/i);
+    if (hmsMatch) {
+      hours = parseInt(hmsMatch[1] || 0) * 3600;
+      minutes = parseInt(hmsMatch[2] || 0) * 60;
+      seconds = parseInt(hmsMatch[3] || 0);
     }
 
-    let timeInSeconds = hours + minutes + seconds;
-    if (isNaN(timeInSeconds)) return null;
-    return timeInSeconds;
-  }
+    const colonMatch = time.match(/^(?:(\d+):)?(?:(\d+):)?(\d+)$/);
+    if (colonMatch) {
+      hours = parseInt(colonMatch[1] || 0) * 3600;
+      minutes = parseInt(colonMatch[2] || 0) * 60;
+      seconds = parseInt(colonMatch[3] || 0);
+    }
 
+    return hours + minutes + seconds;
+  }
+  
   function timerNotRunning(success) {
     if (success) chatItalicMessage(responses.commandSuccess);
     else chatItalicMessage(responses.notRunning);
