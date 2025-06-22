@@ -154,7 +154,7 @@ const chatHandler = (function () {
   function parseTime(time) {
     let hours = 0, minutes = 0, seconds = 0;
 
-    const hmsMatch = time.match(/(\d+)h|(\d+)m|(\d+)s/i);
+    const hmsMatch = time.match(/(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?/i);
     if (hmsMatch) {
       hours = parseInt(hmsMatch[1] || 0);
       minutes = parseInt(hmsMatch[2] || 0);
