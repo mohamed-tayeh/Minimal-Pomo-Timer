@@ -154,25 +154,17 @@ const chatHandler = (function () {
   function parseTime(time) {
     let hours = 0, minutes = 0, seconds = 0;
 
-    const hmsMatch = time.match(/(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?/i);
-    if (hmsMatch) {
-      hours = parseInt(hmsMatch[1] || 0);
-      minutes = parseInt(hmsMatch[2] || 0);
-      seconds = parseInt(hmsMatch[3] || 0);
-    }
-
     const colonMatch = time.match(/^(\d+)(?::(\d+))?(?::(\d+))?$/);
     if (colonMatch) {
-      if (colonMatch[3] !== undefined) {
-        hours = parseInt(colonMatch[1] || 0);
-        minutes = parseInt(colonMatch[2] || 0);
-        seconds = parseInt(colonMatch[3] || 0);
-      } else if (colonMatch[2] !== undefined) {
-        minutes = parseInt(colonMatch[1] || 0);
-        seconds = parseInt(colonMatch[2] || 0);
-      } else {
-        seconds = parseInt(colonMatch[1] || 0);
-      }
+      const [, hh, mm, ss] = colonMatch;
+      [hours, minutes, seconds] = ss ? [+hh, +mm, +ss] : mm ? [0, +hh, +mm] : [0, 0, +hh];
+    }
+
+    const hmsMatch = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/i);
+    if (hmsMatch) {
+      hours = +(hmsMatch[1] ?? 0);
+      minutes = +(hmsMatch[2] ?? 0);
+      seconds = +(hmsMatch[3] ?? 0);
     }
 
     return hours * 3600 + minutes * 60 + seconds;
