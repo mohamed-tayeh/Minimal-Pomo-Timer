@@ -148,32 +148,26 @@ const chatHandler = (function () {
 
   /**
    * Parses given user input of time in digital format
-   * @param time - in the format of HH:MM:SS entered by the user
-   * @return time in seconds or null if invalid
+   * @param time - in the format of HH:MM:SS or XhYmZs entered by the user
+   * @return time in seconds
    */
   function parseTime(time) {
-    let hours = 0;
-    let minutes = 0;
-    let seconds = 0;
+    let hours = 0, minutes = 0, seconds = 0;
 
-    let split = time.split(':');
-
-    if (split.length === 3) {
-      hours = parseInt(split[0]) * 60 * 60;
-      minutes = parseInt(split[1]) * 60;
-      seconds = parseInt(split[2]);
-    } else if (split.length === 2) {
-      hours = 0;
-      minutes = parseInt(split[0]) * 60;
-      seconds = parseInt(split[1]);
-    } else {
-      hours = 0;
-      minutes = 0;
-      seconds = parseInt(split[0]);
+    const colonMatch = time.match(/^(\d+)(?::(\d+))?(?::(\d+))?$/);
+    if (colonMatch) {
+      const [, hh, mm, ss] = colonMatch;
+      [hours, minutes, seconds] = ss ? [+hh, +mm, +ss] : mm ? [0, +hh, +mm] : [0, 0, +hh];
     }
 
-    let timeInSeconds = hours + minutes + seconds;
-    if (isNaN(timeInSeconds)) return null;
+    const hmsMatch = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/i);
+    if (hmsMatch) {
+      hours = +(hmsMatch[1] ?? 0);
+      minutes = +(hmsMatch[2] ?? 0);
+      seconds = +(hmsMatch[3] ?? 0);
+    }
+
+    let timeInSeconds = hours * 3600 + minutes * 60 + seconds;
     return timeInSeconds;
   }
 
