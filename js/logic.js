@@ -12,6 +12,7 @@ const logic = (function () {
   let currTime;
   let cdCounter;
   let cdCounterGoal;
+  let endTime;
 
   /**
    * Inits the pomo timer for work time
@@ -364,6 +365,27 @@ const logic = (function () {
     return minutes + ':' + seconds;
   }
 
+  /**
+   * Adds currTime to estimateTime
+   * @return {string}
+   */
+  function estimateTime() {
+    if (!isRunning) {
+      chatHandler.chatItalicMessage(responses.notRunning)
+      return false;
+    }
+
+    const endTime = Date.now() + currTime * 1000;
+    const timeStr = new Date(endTime).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    if (responses.eta) chatHandler.chatItalicMessage(responses.eta.replace('{time}', timeStr));
+
+    return timeStr;
+  }
+
   module.starting = starting;
   module.startTimer = startTimer;
   module.updateCycle = updateCycle;
@@ -375,6 +397,7 @@ const logic = (function () {
   module.skipCycle = skipCycle;
   module.pauseTimer = pauseTimer;
   module.finishTimer = finishTimer;
+  module.estimateTime = estimateTime;
 
   return module;
 })();
