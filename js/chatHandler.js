@@ -167,7 +167,8 @@ const chatHandler = (function () {
       seconds = +(hmsMatch[3] ?? 0);
     }
 
-    return hours * 3600 + minutes * 60 + seconds;
+    let timeInSeconds = hours * 3600 + minutes * 60 + seconds;
+    return timeInSeconds;
   }
 
   function timerNotRunning(success) {
