@@ -365,7 +365,7 @@ const logic = (function () {
   }
 
   /**
-   * Adds currTime to estimateTime
+   * Adds timer eta
    * @return {string}
    */
   function estimateTime() {
@@ -377,7 +377,6 @@ const logic = (function () {
     let totalRemainingTime = currTime;
     let nextCycleNumber = cdCounter + 1;
     const lastCycle = cdCounterGoal;
-    const longBreakMod = settings.longBreakEvery * 2;
 
     while (nextCycleNumber <= lastCycle) {
       const isWork = nextCycleNumber % 2 === 1;
@@ -390,7 +389,7 @@ const logic = (function () {
           break;
         }
 
-        const isLongBreak = nextCycleNumber % longBreakMod === 0;
+        const isLongBreak = nextCycleNumber % (settings.longBreakEvery * 2) === 0;
         totalRemainingTime += isLongBreak ? settings.longBreakTime : settings.breakTime;
       }
 
