@@ -6,6 +6,12 @@ let configs = (function () {
   const username = ''; // bot account
   const oauth = ''; // should be oauth:xxxxxxxxxxxx from the bot account
 
+  const sceneBreak = ''; // scene name for when it's break time
+  const sceneWork = ''; // scene name for when it's work time
+
+  const port = '4444'; // this should be automatically set in the OBS WebSocket Settings to 4444, but it may be something different, just type it in between the quotes
+  const password = ''; // set this in OBS WebSocket settings
+
   // Styling - required
   const height = '150px';
   const width = '373px';
@@ -166,6 +172,13 @@ let configs = (function () {
     sendDiscord,
   };
 
+  const obs = {
+    port,
+    password,
+    sceneBreak,
+    sceneWork,
+  };
+
   let module = {};
 
   module.user = user;
@@ -173,6 +186,7 @@ let configs = (function () {
   module.responses = responses;
   module.settings = settings;
   module.discordSettings = discordSettings;
+  module.obs = obs;
 
   return module;
 })();
