@@ -91,6 +91,9 @@ const chatHandler = (function () {
         else if (logic.isValidGoal(secondParam)) timerNotRunning(false);
         else chatItalicMessage(responses.goalWrong);
         break;
+      case 'eta':
+        logic.estimateTime();
+        break;
       case 'finish':
       case 'reset':
       case 'clear':

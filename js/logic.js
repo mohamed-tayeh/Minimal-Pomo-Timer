@@ -364,6 +364,50 @@ const logic = (function () {
     return minutes + ':' + seconds;
   }
 
+  /**
+   * Adds currTime to estimateTime
+   * @return {string}
+   */
+  function estimateTime() {
+    if (!isRunning) {
+      chatHandler.chatItalicMessage(responses.notRunning)
+      return false;
+    }
+
+    let totalRemainingTime = currTime;
+    let nextCycleNumber = cdCounter + 1;
+    const lastCycle = cdCounterGoal;
+    const longBreakMod = settings.longBreakEvery * 2;
+
+    while (nextCycleNumber <= lastCycle) {
+      const isWork = nextCycleNumber % 2 === 1;
+
+      if (isWork) {
+        totalRemainingTime += settings.workTime;
+      } else {
+        // Skip adding break time if noLastBreak and this is the last cycle
+        if (settings.noLastBreak && nextCycleNumber === lastCycle) {
+          break;
+        }
+
+        const isLongBreak = nextCycleNumber % longBreakMod === 0;
+        totalRemainingTime += isLongBreak ? settings.longBreakTime : settings.breakTime;
+      }
+
+      nextCycleNumber++;
+    }
+
+    const endTime = Date.now() + totalRemainingTime * 1000;
+    const timeStr = new Date(endTime).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    if (responses.eta) chatHandler.chatItalicMessage(responses.eta.replace('{time}', timeStr));
+
+    return timeStr;
+  }
+
   module.starting = starting;
   module.startTimer = startTimer;
   module.updateCycle = updateCycle;
@@ -375,6 +419,7 @@ const logic = (function () {
   module.skipCycle = skipCycle;
   module.pauseTimer = pauseTimer;
   module.finishTimer = finishTimer;
+  module.estimateTime = estimateTime;
 
   return module;
 })();
