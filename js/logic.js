@@ -12,7 +12,6 @@ const logic = (function () {
   let currTime;
   let cdCounter;
   let cdCounterGoal;
-  let endTime;
 
   /**
    * Inits the pomo timer for work time
@@ -375,7 +374,30 @@ const logic = (function () {
       return false;
     }
 
-    const endTime = Date.now() + currTime * 1000;
+    let totalRemainingTime = currTime;
+    let nextCycleNumber = cdCounter + 1;
+    const lastCycle = cdCounterGoal;
+    const longBreakMod = settings.longBreakEvery * 2;
+
+    while (nextCycleNumber <= lastCycle) {
+      const isWork = nextCycleNumber % 2 === 1;
+
+      if (isWork) {
+        totalRemainingTime += settings.workTime;
+      } else {
+        // Skip adding break time if noLastBreak and this is the last cycle
+        if (settings.noLastBreak && nextCycleNumber === lastCycle) {
+          break;
+        }
+
+        const isLongBreak = nextCycleNumber % longBreakMod === 0;
+        totalRemainingTime += isLongBreak ? settings.longBreakTime : settings.breakTime;
+      }
+
+      nextCycleNumber++;
+    }
+
+    const endTime = Date.now() + totalRemainingTime * 1000;
     const timeStr = new Date(endTime).toLocaleTimeString([], {
       hour: '2-digit',
       minute: '2-digit',
